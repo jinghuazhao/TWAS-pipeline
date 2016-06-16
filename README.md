@@ -25,9 +25,9 @@ within each genes. The tasks involved are to
 . repeat above steps for all genes and collect restuls
 
 The selection of SNPs should comply with 1000Genomes-imputated data, e.g.,
-refFlat.txt and snp_pos.txt from locuszoom-1.3, and list of SNP-genes pair from
-Axiom_UKB_WCSG.na34.annot.csv.zip. Their chromosome-specific counterparts as
-with SNPs under all genes can also be derived.
+refFlat.txt and snp_pos.txt from locuszoom-1.3 (see lz.sql), and list of SNP-genes
+pair from Axiom_UKB_WCSG.na34.annot.csv.zip. Their chromosome-specific counterparts
+as with SNPs under all genes can also be derived.
 
 An example is provided on a recent study of body bone mineral density (TBBMD).   
 The relevant files are listed as follows,
