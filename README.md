@@ -21,7 +21,7 @@ Minor changes to the scripts may be required for your own data. The tasks involv
 
 The selection of SNPs should comply with 1000Genomes-imputated data, e.g., refFlat.txt and snp_pos.txt from locuszoom-1.3 (Pruim, et al. 2010, also see lz.sql), and list of SNP-genes pair from Axiom_UKB_WCSG.na34.annot.csv.zip. Their chromosome-specific counterparts as with SNPs under all genes can also be derived. I have used 1000Genomes information to obtain all autosomal genes as well as SNPs within each genes.
 
-An example is provided on a recent study of body bone mineral density (TBBMD). The relevant filesa ll haveprefix bmd- and some are listed as follows,
+An example is provided on a recent study of body bone mineral density (TBBMD). The relevant filesa ll have prefix bmd- and some are listed as follows,
 
 bmd.sh                  to generate chromosome-specific z-scores
 
