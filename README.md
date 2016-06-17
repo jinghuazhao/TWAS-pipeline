@@ -26,11 +26,16 @@ The selection of SNPs should comply with 1000Genomes-imputated data, e.g., refFl
 An example is provided on a recent study of body bone mineral density (TBBMD). The relevant files are listed as follows,
 
 bmd.sh                  to generate chromosome-specific z-scores
+
 bmd.do                  Stata program to flag non-missing individuals
+
 bmd/TBBMD.gz            the GWAS summary statistics
+
 bmd-twas.sh             script for TWAS by SNP
+
 bmd-twas2.sh            region selection based on position rather than rsid
-summary.sh              To put together all imputation results into bmd.imp
+
+bmd-summary.sh          To put together all imputation results into bmd.imp
 
 The automation would involve bmi-twas.sh and bmd-twas2.sh.
 
