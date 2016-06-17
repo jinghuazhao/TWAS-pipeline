@@ -8,7 +8,7 @@ TWAS_get_weights.sh     to obtain weights (.ld, .cor, .map) from PLINK map/ped p
 TWAS.sh                 To conduct imputatation as reported in the Gusev et al. (2016)
                         Nature Genetics 
 
-I have used 1000Genomes information to obtain all autosomal genes as well as SNPs within each genes. The tasks involved are to  
+Minor changes to the scripts may be required. I have used 1000Genomes information to obtain all autosomal genes as well as SNPs within each genes. The tasks involved are to  
 
 . extract SNPs in a gene from 1000Gnomes imputed data into PLINK map/ped files
 
