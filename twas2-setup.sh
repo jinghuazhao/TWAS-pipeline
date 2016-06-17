@@ -2,7 +2,9 @@
 # 17-6-2016 MRC-Epid JHZ
 
 cd /genetics/data/CGI/TWAS-pipeline
-
+mkdir -p /scratch2/tempjhz22/bmi
+ln -sf /scratch2/tempjhz22/bmi
+cd bmi
 wget http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz
 wget http://www.broadinstitute.org/collaboration/giant/images/f/f0/All_ancestries_SNP_gwas_mc_merge_nogc.tbl.uniq.gz
 ln -sf SNP_gwas_mc_merge_nogc.tbl.uniq.gz BMI-EUR.gz
