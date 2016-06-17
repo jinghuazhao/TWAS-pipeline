@@ -13,9 +13,13 @@ I have used 1000Genomes information to obtain all autosomal genes as well as SNP
 within each genes. The tasks involved are to  
 
 . extract SNPs in a gene from 1000Gnomes imputed data into PLINK map/ped files
+
 . obtain .ld, .cor and .map with TWAS_get_weights.sh for that gene
+
 . select summary statistics (.zscore) for the gene
+
 . conduct imputation with TWAS.sh into file .imp
+
 . repeat above steps for all genes and collect restuls
 
 
