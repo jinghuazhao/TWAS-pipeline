@@ -1,7 +1,6 @@
 Transcription-Wide Association Analysis Pipeline (TWAS-pipeline)
 
-The purpose of this work is to automate Transciption-Wide Association Analysis (TWAS)
-as implemented in the software TWAS containing two command files:
+The purpose of this work is to automate Transciption-Wide Association Analysis (TWAS) as implemented in the software TWAS containing two command files:
 
 TWAS_get_weights.sh     to obtain weights (.ld, .cor, .map) from PLINK map/ped pair
                         given a particular locus. It actually wraps up a program in R.
@@ -9,8 +8,7 @@ TWAS_get_weights.sh     to obtain weights (.ld, .cor, .map) from PLINK map/ped p
 TWAS.sh                 To conduct imputatation as reported in the Gusev et al. (2016)
                         Nature Genetics 
 
-I have used 1000Genomes information to obtain all autosomal genes as well as SNPs
-within each genes. The tasks involved are to  
+I have used 1000Genomes information to obtain all autosomal genes as well as SNPs within each genes. The tasks involved are to  
 
 . extract SNPs in a gene from 1000Gnomes imputed data into PLINK map/ped files
 
@@ -23,13 +21,9 @@ within each genes. The tasks involved are to
 . repeat above steps for all genes and collect restuls
 
 
-The selection of SNPs should comply with 1000Genomes-imputated data, e.g.,
-refFlat.txt and snp_pos.txt from locuszoom-1.3 (see lz.sql), and list of SNP-genes
-pair from Axiom_UKB_WCSG.na34.annot.csv.zip. Their chromosome-specific counterparts
-as with SNPs under all genes can also be derived.
+The selection of SNPs should comply with 1000Genomes-imputated data, e.g., refFlat.txt and snp_pos.txt from locuszoom-1.3 (see lz.sql), and list of SNP-genes pair from Axiom_UKB_WCSG.na34.annot.csv.zip. Their chromosome-specific counterparts as with SNPs under all genes can also be derived.
 
-An example is provided on a recent study of body bone mineral density (TBBMD).   
-The relevant files are listed as follows,
+An example is provided on a recent study of body bone mineral density (TBBMD). The relevant files are listed as follows,
 
 bmd.sh                  to generate chromosome-specific z-scores
 bmd.do                  Stata program to flag non-missing individuals
@@ -40,19 +34,14 @@ summary.sh              To put together all imputation results into bmd.imp
 
 The automation would involve bmi-twas.sh and bmd-twas2.sh.
 
-As described in TWAS documentation, if one takes weights from the three population
-in Gusev et al. (2016) as well as summary statistics from Locke et al. (2015) then
-one only needs twas2.sh and collect.sh for TWAS and result collection.
+As described in TWAS documentation, if one takes weights from the three population in Gusev et al. (2016) as well as summary statistics from Locke et al. (2015) then one only needs twas2.sh and collect.sh for TWAS and result collection.
 
 
 REFERENCES
 
-Locke AM, et al.(2015). Genetic studies of body mass index yield new insights for
-obesity biology. Nature 518:197-206
+Locke AM, et al.(2015). Genetic studies of body mass index yield new insights for obesity biology. Nature 518:197-206
 
-Gusev A., et al. (2016) Integrative approaches for large-scale transcriptome-wide
-association studies. Nat Genet 48:245-252   
+Gusev A., et al. (2016) Integrative approaches for large-scale transcriptome-wide association studies. Nat Genet 48:245-252   
 
-Pruim RJ, et al. (2010). LocusZoom: regional visualization of genome-wide association
-scan results. Bioinformatics 26:2336-2337
+Pruim RJ, et al. (2010). LocusZoom: regional visualization of genome-wide association scan results. Bioinformatics 26:2336-2337
 
