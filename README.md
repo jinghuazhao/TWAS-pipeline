@@ -45,7 +45,7 @@ IN GENERAL
 
 The weights have to be generated in general. The software TWAS contains two command files:
 
-.   TWAS_get_weights.sh, which obtains weights (.ld, .cor, .map) from PLINK map/ped pair given a particular locus. It actually wraps up a program in R.
+. TWAS_get_weights.sh, which obtains weights (.ld, .cor, .map) from PLINK map/ped pair given a particular locus. It actually wraps up a program in R.
                         
 . TWAS.sh, which conducts imputatation as reported in the Gusev et al. (2016). 
 
