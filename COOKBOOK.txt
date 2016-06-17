@@ -52,4 +52,4 @@ of geens than chromosomes and therefore computationally efficient when propagate
 under clusters.
 
 At times it is desirable to run imputation for a particular gene while keeping all
-intermediate files, which can be done via 1.sh for a given gene.
+intermediate files, which can be done via bmd-1.sh for a given gene.
