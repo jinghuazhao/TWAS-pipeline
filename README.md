@@ -5,6 +5,7 @@ as implemented in the software TWAS containing two command files:
 
 TWAS_get_weights.sh     to obtain weights (.ld, .cor, .map) from PLINK map/ped pair
                         given a particular locus
+                        
 TWAS.sh                 To conduct imputatation as reported in the Gusev et al. (2016)
                         Nature Genetics  
 
