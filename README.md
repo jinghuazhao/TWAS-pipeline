@@ -18,6 +18,7 @@ within each genes. The tasks involved are to
 . conduct imputation with TWAS.sh into file .imp
 . repeat above steps for all genes and collect restuls
 
+
 The selection of SNPs should comply with 1000Genomes-imputated data, e.g.,
 refFlat.txt and snp_pos.txt from locuszoom-1.3 (see lz.sql), and list of SNP-genes
 pair from Axiom_UKB_WCSG.na34.annot.csv.zip. Their chromosome-specific counterparts
