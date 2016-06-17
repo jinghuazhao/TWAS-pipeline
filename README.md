@@ -1,6 +1,6 @@
 Transcription-Wide Association Analysis Pipeline (TWAS-pipeline)
 
-The purpose of this work is to automate Transciption-Wide Association Analysis (TWAS, Gusev, et al. 2016) as implemented in the software TWAS containing two command files:
+The purpose of this work is to automate Transciption-Wide Association Analysis (TWAS, Gusev, et al. 2016) as implemented in the software TWAS, which contains two command files:
 
 TWAS_get_weights.sh     to obtain weights (.ld, .cor, .map) from PLINK map/ped pair
                         given a particular locus. It actually wraps up a program in R.
