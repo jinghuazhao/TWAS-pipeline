@@ -1,6 +1,49 @@
 Transcription-Wide Association Analysis Pipeline (TWAS-pipeline)
 
-The purpose of this work is to automate Transciption-Wide Association Analysis (TWAS, Gusev, et al. 2016) as implemented in the software TWAS, which contains two command files:
+The GIANT consortiium study of BMI on Europeans led to the following tab-delimited summary statistics, as in  Locke, et al. (2015), 
+http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz, 
+
+SNP	A1	A2	Freq1.Hapmap	b	se	p	N
+rs1000000	G	A	0.6333	1e-04	0.0044	0.9819	231410
+rs10000010	T	C	0.575	-0.0029	0.003	0.3374	322079
+rs10000012	G	C	0.1917	-0.0095	0.0054	0.07853	233933
+rs10000013	A	C	0.8333	-0.0095	0.0044	0.03084	233886
+...
+
+from which we generated the following z-score file /genetics/data/CGI/TWAS-pipeline/EUR/bmi.txt
+
+rs10	C	A	-0.571429
+rs1000000	G	A	0.0227273
+rs10000010	T	C	-0.966667
+rs10000012	G	C	-1.75926
+rs10000013	A	C	-2.15909
+...
+
+We can then call twas2.sh as follows,
+
+twas2.sh bmi.txt EUR MET 1
+
+where MET specifies weights from METSIM populaiton as in Gusev et al. (2016) and we start from block 1 of the gene list.
+
+As this may be time-consuming, we resort to parallel computing,
+
+parallel -j8 /genetics/data/CGI/TWAS-pipeline/twas2.sh {1} {2} {3} ::: bmi.txt ::: EUR ::: MET NTR YFS ::: $(seq 1000) 
+
+where we iterate through all sets of weight (MET, NTR and YFE) and all blocks of genes using 8 CPUs.
+
+If we provide /genetics/data/CGI/TWAS-pipeline/ALL/bmi.txt based on all population results, http://www.broadinstitute.org/collaboration/giant/images/f/f0/All_ancestries_SNP_gwas_mc_merge_nogc.tbl.uniq.gz, then we simply replace EUR with EUR ALL in the call to parallel above.
+
+The imputation resuls are available from
+
+sh twas2-collect.sh EUR
+sh twas2-collect.sh ALL
+
+All these have been provided in the repository with prefix twas2-.
+
+
+IN GENERAL
+
+The weights have to be generated in general. The software TWAS contains two command files:
 
 .   TWAS_get_weights.sh, which obtains weights (.ld, .cor, .map) from PLINK map/ped pair given a particular locus. It actually wraps up a program in R.
                         
@@ -36,8 +79,6 @@ bmd-twas2.sh            region selection based on position rather than rsid
 bmd-summary.sh          To put together all imputation results into bmd.imp
 
 The automation would involve bmi-twas.sh and bmd-twas2.sh.
-
-As described in TWAS documentation, if one takes weights from the three population in Gusev et al. (2016) as well as summary statistics from Locke et al. (2015) then one only needs twas2.sh and twas2-collect.sh for TWAS and result collection. The scripts for this particular example all have prefix twas2-.
 
 
 REFERENCES
