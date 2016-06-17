@@ -37,7 +37,7 @@ bmd-summary.sh          To put together all imputation results into bmd.imp
 
 The automation would involve bmi-twas.sh and bmd-twas2.sh.
 
-As described in TWAS documentation, if one takes weights from the three population in Gusev et al. (2016) as well as summary statistics from Locke et al. (2015) then one only needs twas2.sh and collect.sh for TWAS and result collection.
+As described in TWAS documentation, if one takes weights from the three population in Gusev et al. (2016) as well as summary statistics from Locke et al. (2015) then one only needs twas2.sh and twas2-collect.sh for TWAS and result collection. The scripts for this particular example all have prefix twas2-.
 
 
 REFERENCES
