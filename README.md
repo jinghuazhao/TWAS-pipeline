@@ -23,7 +23,7 @@ We can then call twas2.sh as follows,
 
 twas2.sh bmi.txt EUR MET 1
 
-where MET specifies weights from METSIM populaiton as in Gusev et al. (2016) and we start from block 1 of the gene list.
+where MET specifies weights from METSIM population as in Gusev et al. (2016) and we start from block 1 of the gene list.
 
 As this may be time-consuming, we resort to parallel computing,
 
