@@ -1,9 +1,4 @@
-        Transcription-Wide Association Analysis Pipeline (TWAS-pipeline)
-
-                                Jing Hua Zhao
-
-                                   16/6/2016
-
+Transcription-Wide Association Analysis Pipeline (TWAS-pipeline)
 
 The purpose of this work is to automate Transciption-Wide Association Analysis (TWAS)
 as implemented in the software TWAS containing two command files:
