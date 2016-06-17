@@ -42,8 +42,8 @@ As described in TWAS documentation, if one takes weights from the three populati
 
 REFERENCES
 
-Locke AM, et al.(2015). Genetic studies of body mass index yield new insights for obesity biology. Nature 518:197-206
+Locke AM, et al.(2015). Genetic studies of body mass index yield new insights for obesity biology. Nature, 518, 197-206
 
-Gusev A., et al. (2016) Integrative approaches for large-scale transcriptome-wide association studies. Nat Genet 48:245-252   
+Gusev A., et al. (2016) Integrative approaches for large-scale transcriptome-wide association studies. Nature Genetics, 48, 245-252   
 
-Pruim RJ, et al. (2010). LocusZoom: regional visualization of genome-wide association scan results. Bioinformatics 26:2336-2337
+Pruim RJ, et al. (2010). LocusZoom: regional visualization of genome-wide association scan results. Bioinformatics, 26,2336-2337
