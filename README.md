@@ -2,11 +2,9 @@ Transcription-Wide Association Analysis Pipeline (TWAS-pipeline)
 
 The purpose of this work is to automate Transciption-Wide Association Analysis (TWAS, Gusev, et al. 2016) as implemented in the software TWAS, which contains two command files:
 
-TWAS_get_weights.sh     to obtain weights (.ld, .cor, .map) from PLINK map/ped pair
-                        given a particular locus. It actually wraps up a program in R.
+.   TWAS_get_weights.sh, which obtains weights (.ld, .cor, .map) from PLINK map/ped pair given a particular locus. It actually wraps up a program in R.
                         
-TWAS.sh                 To conduct imputatation as reported in the Gusev et al. (2016)
-                        Nature Genetics 
+. TWAS.sh, which conducts imputatation as reported in the Gusev et al. (2016). 
 
 Minor changes to the scripts may be required for your own data. I have used 1000Genomes information to obtain all autosomal genes as well as SNPs within each genes. The tasks involved are to  
 
