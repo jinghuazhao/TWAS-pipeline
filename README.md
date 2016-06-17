@@ -1,6 +1,6 @@
 Transcription-Wide Association Analysis Pipeline (TWAS-pipeline)
 
-The purpose of this work is to automate Transciption-Wide Association Analysis (TWAS) as implemented in the software TWAS containing two command files:
+The purpose of this work is to automate Transciption-Wide Association Analysis (TWAS, Gusev, et al. 2016) as implemented in the software TWAS containing two command files:
 
 TWAS_get_weights.sh     to obtain weights (.ld, .cor, .map) from PLINK map/ped pair
                         given a particular locus. It actually wraps up a program in R.
@@ -21,7 +21,7 @@ Minor changes to the scripts may be required for your own data. I have used 1000
 . repeat above steps for all genes and collect restuls
 
 
-The selection of SNPs should comply with 1000Genomes-imputated data, e.g., refFlat.txt and snp_pos.txt from locuszoom-1.3 (see lz.sql), and list of SNP-genes pair from Axiom_UKB_WCSG.na34.annot.csv.zip. Their chromosome-specific counterparts as with SNPs under all genes can also be derived.
+The selection of SNPs should comply with 1000Genomes-imputated data, e.g., refFlat.txt and snp_pos.txt from locuszoom-1.3 (Pruim, et al. 2010, also see lz.sql), and list of SNP-genes pair from Axiom_UKB_WCSG.na34.annot.csv.zip. Their chromosome-specific counterparts as with SNPs under all genes can also be derived.
 
 An example is provided on a recent study of body bone mineral density (TBBMD). The relevant files are listed as follows,
 
