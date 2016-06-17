@@ -1,5 +1,5 @@
 #!/bin/sh
-# 14-6-2016 MRC-Epid JHZ
+# 17-6-2016 MRC-Epid JHZ
 
 cd /genetics/data/CGI/TWAS-pipeline
 mkdir -p /scratch2/tempjhz22/bmi
