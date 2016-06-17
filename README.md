@@ -4,12 +4,10 @@ The purpose of this work is to automate Transciption-Wide Association Analysis (
 as implemented in the software TWAS containing two command files:
 
 TWAS_get_weights.sh     to obtain weights (.ld, .cor, .map) from PLINK map/ped pair
-                        given a particular locus
+                        given a particular locus. It actually wraps up a program in R.
                         
 TWAS.sh                 To conduct imputatation as reported in the Gusev et al. (2016)
-                        Nature Genetics  
-
-Note that TWAS_get_weights.sh actually wraps up a program in R. 
+                        Nature Genetics 
 
 I have used 1000Genomes information to obtain all autosomal genes as well as SNPs
 within each genes. The tasks involved are to  
