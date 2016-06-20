@@ -1,5 +1,5 @@
 #!/bin/sh
-# 17-6-2016 MRC-Epid JHZ
+# 20-6-2016 MRC-Epid JHZ
 
 # root directory
 rt=/genetics/data/CGI/TWAS-pipeline
@@ -17,7 +17,8 @@ csize=25
 wd=$rt/$src/$pop
 
 cd $wd
-awk '(NR>=(v-1)*csize+1 && NR<=v*csize)' v=$start csize=$csize /genetics/bin/TWAS/$pop.lst | awk -v rt=$rt -v wd=$wd -v pop=$pop '
+awk '(NR>=(v-1)*csize+1 && NR<=v*csize)' v=$start csize=$csize /genetics/bin/TWAS/$pop.lst \
+| awk -v rt=$rt -v wd=$wd -v pop=$pop -v zfile=$zfile '
 {
     gene=$1
     filename=sprintf("/genetics/bin/TWAS/WEIGHTS_%s/%s/%s.wgt",pop,gene,gene)
