@@ -27,7 +27,7 @@ where MET specifies weights from METSIM population as in Gusev et al. (2016) and
 
 As this may be time-consuming, we resort to parallel computing,
 
-parallel -j8 /genetics/data/CGI/TWAS-pipeline/twas2.sh {1} {2} {3} ::: bmi.txt ::: EUR ::: MET NTR YFS ::: $(seq 1000) 
+parallel -j8 /genetics/data/CGI/TWAS-pipeline/twas2.sh {1} {2} {3} {4} ::: bmi.txt ::: EUR ::: MET NTR YFS ::: $(seq 1000) 
 
 where we iterate through all sets of weight (MET, NTR and YFE) and all blocks of genes using 8 CPUs.
 
