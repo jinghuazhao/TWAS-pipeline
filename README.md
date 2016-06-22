@@ -38,7 +38,9 @@ The imputation resuls are available from
 sh twas2-collect.sh EUR
 sh twas2-collect.sh ALL
 
-All these have been provided in the repository with prefix twas2-.
+All these have been provided in the repository with prefix twas2-. In particular, imputation can also be done for a specific gene, e.g., BRCA1 and YFS:
+
+sh twas2-1.sh menopause.txt BRCA1 YFS BRCA1
 
 
 IN GENERAL
