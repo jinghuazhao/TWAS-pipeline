@@ -42,6 +42,8 @@ All these have been provided in the repository with prefix twas2-. In particular
 
 sh twas2-1.sh menopause.txt BRCA1 YFS BRCA1
 
+so the results are written into BRCA1/YFS/BRCA1.imp. Note that by doing so, intermediate files with extensions .join, .sort, .zscore are available for check
+
 
 IN GENERAL
 
