@@ -3,15 +3,12 @@ Transcription-Wide Association Analysis Pipeline (TWAS-pipeline)
 The GIANT consortiium study of BMI on Europeans led to the following tab-delimited summary statistics, as in  Locke, et al. (2015), 
 http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz, 
 
-#+BEGIN_SRC
-
 SNP	A1	A2	Freq1.Hapmap	b	se	p	N
 rs1000000	G	A	0.6333	1e-04	0.0044	0.9819	231410
 rs10000010	T	C	0.575	-0.0029	0.003	0.3374	322079
 rs10000012	G	C	0.1917	-0.0095	0.0054	0.07853	233933
 rs10000013	A	C	0.8333	-0.0095	0.0044	0.03084	233886
 ...
-#+END_SRC
 
 from which we generated the following z-score file /genetics/data/CGI/TWAS-pipeline/EUR/bmi.txt
 
