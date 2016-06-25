@@ -26,9 +26,9 @@ twas2.sh bmi.txt EUR MET 1
 where MET specifies weights from METSIM population as in Gusev et al. (2016) and we start from block 1 of the gene list.
 
 As this may be time-consuming, we resort to parallel computing,
-
+```
 parallel -j8 /genetics/data/CGI/TWAS-pipeline/twas2.sh {1} {2} {3} {4} ::: bmi.txt ::: EUR ::: MET NTR YFS ::: $(seq 1000) 
-
+```
 where we iterate through all sets of weight (MET, NTR and YFE) and all blocks of genes using 8 CPUs.
 
 If we provide /genetics/data/CGI/TWAS-pipeline/ALL/bmi.txt based on all population results, http://www.broadinstitute.org/collaboration/giant/images/f/f0/All_ancestries_SNP_gwas_mc_merge_nogc.tbl.uniq.gz, then we simply replace EUR with EUR ALL in the call to parallel above.
