@@ -71,6 +71,7 @@ The selection of SNPs should comply with 1000Genomes-imputated data, e.g., refFl
 An example is provided on a recent study of body bone mineral density (TBBMD). The relevant filesa ll have prefix bmd- and some are listed as follows,
 
 | Files           |        Description |
+------------------|--------------------|
 | bmd.sh          |        to generate chromosome-specific z-scores |
 | bmd.do          |        Stata program to flag non-missing individuals |
 | bmd/TBBMD.gz    |        the GWAS summary statistics |
