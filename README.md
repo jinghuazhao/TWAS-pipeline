@@ -1,4 +1,4 @@
-# Transcription-Wide Association Analysis Pipeline (TWAS-pipeline)
+# Transcriptome-Wide Association Analysis Pipeline (TWAS-pipeline)
 
 The GIANT consortiium study of BMI on Europeans led to the following tab-delimited summary statistics, as in  Locke, et al. (2015), 
 http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz, 
