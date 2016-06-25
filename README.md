@@ -20,9 +20,9 @@ rs10000013	A	C	-2.15909
 ...
 ```
 We can then call twas2.sh as follows,
-
+```
 twas2.sh bmi.txt EUR MET 1
-
+```
 where MET specifies weights from METSIM population as in Gusev et al. (2016) and we start from block 1 of the gene list.
 
 As this may be time-consuming, we resort to parallel computing,
@@ -34,14 +34,14 @@ where we iterate through all sets of weight (MET, NTR and YFE) and all blocks of
 If we provide /genetics/data/CGI/TWAS-pipeline/ALL/bmi.txt based on all population results, http://www.broadinstitute.org/collaboration/giant/images/f/f0/All_ancestries_SNP_gwas_mc_merge_nogc.tbl.uniq.gz, then we simply replace EUR with EUR ALL in the call to parallel above.
 
 The imputation resuls are available from
-
+```
 sh twas2-collect.sh EUR
 sh twas2-collect.sh ALL
-
+```
 All these have been provided in the repository with prefix twas2-. In particular, imputation can also be done for a specific gene, e.g., BRCA1 and YFS:
-
+```
 sh twas2-1.sh menopause.txt BRCA1 YFS BRCA1
-
+```
 so the results are written into BRCA1/YFS/BRCA1.imp. Note that by doing so, intermediate files with extensions .join, .sort, .zscore are available for check
 
 
@@ -49,43 +49,43 @@ so the results are written into BRCA1/YFS/BRCA1.imp. Note that by doing so, inte
 
 The weights have to be generated in general. The software TWAS contains two command files:
 
-. TWAS_get_weights.sh, which obtains weights (.ld, .cor, .map) from PLINK map/ped pair given a particular locus. It actually wraps up a program in R.
+* TWAS_get_weights.sh, which obtains weights (.ld, .cor, .map) from PLINK map/ped pair given a particular locus. It actually wraps up a program in R.
                         
-. TWAS.sh, which conducts imputatation as reported in the Gusev et al. (2016). 
+* TWAS.sh, which conducts imputatation as reported in the Gusev et al. (2016). 
 
 Minor changes to the scripts may be required for your own data. The tasks involved are to  
 
-. extract SNPs in a gene from 1000Gnomes imputed data into PLINK map/ped files
+* extract SNPs in a gene from 1000Gnomes imputed data into PLINK map/ped files
 
-. obtain .ld, .cor and .map with TWAS_get_weights.sh for that gene
+* obtain .ld, .cor and .map with TWAS_get_weights.sh for that gene
 
-. select summary statistics (.zscore) for the gene
+* select summary statistics (.zscore) for the gene
 
-. conduct imputation with TWAS.sh into file .imp
+* conduct imputation with TWAS.sh into file .imp
 
-. repeat above steps for all genes and collect restuls
+* repeat above steps for all genes and collect restuls
 
 
 The selection of SNPs should comply with 1000Genomes-imputated data, e.g., refFlat.txt and snp_pos.txt from locuszoom-1.3 (Pruim, et al. 2010, also see lz.sql), and list of SNP-genes pair from Axiom_UKB_WCSG.na34.annot.csv.zip. Their chromosome-specific counterparts as with SNPs under all genes can also be derived. I have used 1000Genomes information to obtain all autosomal genes as well as SNPs within each genes.
 
 An example is provided on a recent study of body bone mineral density (TBBMD). The relevant filesa ll have prefix bmd- and some are listed as follows,
 
-bmd.sh                  to generate chromosome-specific z-scores
-
-bmd.do                  Stata program to flag non-missing individuals
-
-bmd/TBBMD.gz            the GWAS summary statistics
-
-bmd-twas.sh             script for TWAS by SNP
-
-bmd-twas2.sh            region selection based on position rather than rsid
-
-bmd-summary.sh          To put together all imputation results into bmd.imp
+bmd.sh          |        to generate chromosome-specific z-scores
+----------------|----------------------------------------------------
+bmd.do          |        Stata program to flag non-missing individuals
+----------------|----------------------------------------------------
+bmd/TBBMD.gz    |        the GWAS summary statistics
+----------------|----------------------------------------------------
+bmd-twas.sh     |        script for TWAS by SNP
+----------------|----------------------------------------------------
+bmd-twas2.sh    |        region selection based on position rather than rsid
+----------------|------------------------------------------------------
+bmd-summary.sh  |        To put together all imputation results into bmd.imp
 
 The automation would involve bmi-twas.sh and bmd-twas2.sh.
 
 
-REFERENCES
+**REFERENCES**
 
 Locke AM, et al.(2015). Genetic studies of body mass index yield new insights for obesity biology. Nature, 518, 197-206
 
