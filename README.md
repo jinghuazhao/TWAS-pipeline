@@ -38,7 +38,7 @@ The imputation resuls are available from
 sh twas2-collect.sh EUR
 sh twas2-collect.sh ALL
 ```
-All these have been provided in the repository with prefix twas2-. In particular, imputation can also be done for a specific gene, e.g., BRCA1 and YFS:
+All these have been provided in the repository with prefix `twas2`-. In particular, imputation can also be done for a specific gene, e.g., BRCA1 and YFS:
 ```
 sh twas2-1.sh menopause.txt BRCA1 YFS BRCA1
 ```
@@ -49,9 +49,9 @@ so the results are written into BRCA1/YFS/BRCA1.imp. Note that by doing so, inte
 
 The weights have to be generated in general. The software TWAS contains two command files:
 
-* TWAS_get_weights.sh, which obtains weights (.ld, .cor, .map) from PLINK map/ped pair given a particular locus. It actually wraps up a program in R.
+* `TWAS_get_weights.sh`, which obtains weights (.ld, .cor, .map) from PLINK map/ped pair given a particular locus. It actually wraps up a program in R.
                         
-* TWAS.sh, which conducts imputatation as reported in the Gusev et al. (2016). 
+* `TWAS.sh`, which conducts imputatation as reported in the Gusev et al. (2016). 
 
 Minor changes to the scripts may be required for your own data. The tasks involved are to  
 
@@ -70,14 +70,14 @@ The selection of SNPs should comply with 1000Genomes-imputated data, e.g., refFl
 
 An example is provided on a recent study of body bone mineral density (TBBMD). The relevant filesa ll have prefix bmd- and some are listed as follows,
 
-| Files           |        Description |
-------------------|--------------------|
-| bmd.sh          |        to generate chromosome-specific z-scores |
-| bmd.do          |        Stata program to flag non-missing individuals |
-| bmd/TBBMD.gz    |        the GWAS summary statistics |
-| bmd-twas.sh     |        script for TWAS by SNP|
-| bmd-twas2.sh    |        region selection based on position rather than rsid |
-| bmd-summary.sh  |        To put together all imputation results into bmd.imp |
+ Files           |        Description 
+-----------------|-------------------
+ bmd.sh          |        to generate chromosome-specific z-scores 
+ bmd.do          |        Stata program to flag non-missing individuals 
+ bmd/TBBMD.gz    |        the GWAS summary statistics 
+ bmd-twas.sh     |        script for TWAS by SNP
+ bmd-twas2.sh    |        region selection based on position rather than rsid 
+ bmd-summary.sh  |        To put together all imputation results into bmd.imp 
 
 The automation would involve bmi-twas.sh and bmd-twas2.sh.
 
