@@ -1,4 +1,4 @@
-Transcription-Wide Association Analysis Pipeline (TWAS-pipeline)
+# Transcription-Wide Association Analysis Pipeline (TWAS-pipeline)
 
 The GIANT consortiium study of BMI on Europeans led to the following tab-delimited summary statistics, as in  Locke, et al. (2015), 
 http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz, 
@@ -45,7 +45,7 @@ sh twas2-1.sh menopause.txt BRCA1 YFS BRCA1
 so the results are written into BRCA1/YFS/BRCA1.imp. Note that by doing so, intermediate files with extensions .join, .sort, .zscore are available for check
 
 
-IN GENERAL
+## IN GENERAL
 
 The weights have to be generated in general. The software TWAS contains two command files:
 
