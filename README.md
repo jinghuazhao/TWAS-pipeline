@@ -57,11 +57,11 @@ Minor changes to the scripts may be required for your own data. The tasks involv
 
 * extract SNPs in a gene from 1000Gnomes imputed data into PLINK map/ped files
 
-* obtain .ld, .cor and .map with TWAS_get_weights.sh for that gene
+* obtain .ld, .cor and .map with `TWAS_get_weights.sh` for that gene
 
 * select summary statistics (.zscore) for the gene
 
-* conduct imputation with TWAS.sh into file .imp
+* conduct imputation with `TWAS.sh` into file .imp
 
 * repeat above steps for all genes and collect restuls
 
