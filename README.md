@@ -45,7 +45,7 @@ sh twas2-1.sh menopause.txt BRCA1 YFS BRCA1
 so the results are written into BRCA1/YFS/BRCA1.imp. Note that by doing so, intermediate files with extensions .join, .sort, .zscore are available for check
 
 
-### IN GENERAL
+#### IN GENERAL
 
 The weights have to be generated in general. The software TWAS contains two command files:
 
