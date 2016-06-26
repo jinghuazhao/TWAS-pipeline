@@ -1,7 +1,7 @@
 # Transcriptome-Wide Association Analysis Pipeline (TWAS-pipeline)
 
 The GIANT consortiium study of BMI on Europeans led to the following tab-delimited summary statistics, as in  Locke, et al. (2015), 
-http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz, 
+[EUR.gz](http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz), 
 ```
 SNP	A1	A2	Freq1.Hapmap	b	se	p	N
 rs1000000	G	A	0.6333	1e-04	0.0044	0.9819	231410
@@ -31,7 +31,7 @@ parallel -j8 /genetics/data/CGI/TWAS-pipeline/twas2.sh {1} {2} {3} {4} ::: bmi.t
 ```
 where we iterate through all sets of weight (MET, NTR and YFE) and all blocks of genes using 8 CPUs.
 
-If we provide /genetics/data/CGI/TWAS-pipeline/ALL/bmi.txt based on all population results, http://www.broadinstitute.org/collaboration/giant/images/f/f0/All_ancestries_SNP_gwas_mc_merge_nogc.tbl.uniq.gz, then we simply replace EUR with EUR ALL in the call to parallel above.
+If we provide /genetics/data/CGI/TWAS-pipeline/ALL/bmi.txt based on all population results, [ALL.gz](http://www.broadinstitute.org/collaboration/giant/images/f/f0/All_ancestries_SNP_gwas_mc_merge_nogc.tbl.uniq.gz), then we simply replace EUR with EUR ALL in the call to parallel above.
 
 The imputation resuls are available from
 ```
