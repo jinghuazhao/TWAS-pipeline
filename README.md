@@ -21,7 +21,7 @@ rs10000013	A	C	-2.15909
 ```
 We can then call twas2.sh as follows,
 ```
-twas2.sh bmi.txt EUR MET 1
+sh twas2.sh bmi.txt EUR MET 1
 ```
 where MET specifies weights from METSIM population as in Gusev et al. (2016) and we start from block 1 of the gene list.
 
