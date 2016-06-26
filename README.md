@@ -45,7 +45,7 @@ sh twas2-1.sh menopause.txt BRCA1 YFS BRCA1
 so the results are written into BRCA1/YFS/BRCA1.imp. Note that by doing so, intermediate files with extensions .join, .sort, .zscore are available for check
 
 
-## IN GENERAL
+### IN GENERAL
 
 The weights have to be generated in general. The software TWAS contains two command files:
 
@@ -82,7 +82,7 @@ An example is provided on a recent study of body bone mineral density (TBBMD). T
 The automation would involve bmi-twas.sh and bmd-twas2.sh.
 
 
-**REFERENCES**
+### REFERENCES
 
 Locke AM, et al.(2015). Genetic studies of body mass index yield new insights for obesity biology. Nature, 518, 197-206
 
