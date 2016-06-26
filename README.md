@@ -1,5 +1,11 @@
 # Transcriptome-Wide Association Analysis Pipeline (TWAS-pipeline)
 
+#### SETUP
+
+THe package assumes that `TWAS` software has been installed at `/genetics/bin/TWAS`, while `TWAS-pipeline` is installed in `/genetics/data/CGI/TWAS-pipeline`. Parallel computing is done via GNU parallel.
+
+#### Example
+
 The GIANT consortiium study of BMI on Europeans led to the following tab-delimited summary statistics, sorted by SNPs, as in Locke, et al. (2015), called 
 [BMI-EUR.gz](http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz) in brief, 
 ```
@@ -44,6 +50,7 @@ sh twas2-1.sh menopause.txt BRCA1 YFS BRCA1
 ```
 so the results are written into BRCA1/YFS/BRCA1.imp. Note that by doing so, intermediate files with extensions `.join`, `.sort`, `.zscore` are available for check
 
+The generation of `bmi.txt` in both cases were through `twas2-setup.sh`, including `MET.lst`, `NTR.lst` and `YFS.lst`. 
 
 #### IN GENERAL
 
