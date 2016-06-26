@@ -50,7 +50,7 @@ sh twas2-1.sh menopause.txt BRCA1 YFS BRCA1
 ```
 so the results are written into BRCA1/YFS/BRCA1.imp. Note that by doing so, intermediate files with extensions `.join`, `.sort`, `.zscore` are available for check
 
-The generation of `bmi.txt` in both cases were through `twas2-setup.sh`, including `MET.lst`, `NTR.lst` and `YFS.lst`. 
+The generation of `bmi.txt` in both cases were through `twas2-setup.sh`, including `MET.lst`, `NTR.lst` and `YFS.lst` called by `twas2.sh`. 
 
 #### IN GENERAL
 
