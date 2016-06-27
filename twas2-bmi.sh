@@ -1,5 +1,5 @@
 #!/bin/sh
-# 26-6-2016 MRC-Epid JHZ
+# 27-6-2016 MRC-Epid JHZ
 
 cd /genetics/data/CGI/TWAS-pipeline
 
