@@ -4,7 +4,9 @@
 
 The pipeline requires [TWAS](http://sashagusev.github.io/TWAS/), including its associate [weight files](https://data.broadinstitute.org/alkesgroup/TWAS/) to be unpacked. Parallel computing is done via [GNU parallel](http://www.gnu.org/software/parallel/).
 
-1. Assuming that `TWAS` software has been installed at `/genetics/bin/TWAS`, to facilitate computation using provided weights from `TWAS`, lists of genes in the three population have been made through the following scripts,
+##### TWAS
+
+Assuming that `TWAS` software has been installed at `/genetics/bin/TWAS`, to facilitate computation using provided weights from `TWAS`, lists of genes in the three population have been made through the following scripts,
 ```
 cd /genetics/bin/TWAS
 for pop in MET NTR YFS
@@ -14,7 +16,9 @@ done
 ```
 To align strand, [AWK program](https://data.broadinstitute.org/alkesgroup/TWAS/ETC/CLEAN_ZSCORES.tar.bz2) from the `TWAS` web site is also available from `/genetics/bin/TWAS`. 
 
-2. The pipeline can be installed as follows,
+##### TWAS-pipeline
+
+The pipeline can be installed as follows,
 ```
 git clone https://github.com/jinghuazhao/TWAS-pipeline
 ```
