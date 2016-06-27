@@ -49,6 +49,38 @@ twas2-1.sh $TWAS $TWAS2 $dir YFS BRCA1
 
 #### EXAMPLE APPLICATIONS
 
+##### IN-HOUSE EXAMPLE
+
+A complete analysis on an in-house example on a file called `YMen_LRR_UKBB.GCTA` is as follows,
+```
+TWAS=/genetics/bin/TWAS
+TWAS2=/genetics/bin/TWAS-pipeline
+rt=YMen_LRR_UKBB
+awk '
+(NR>1) {
+  FS=OFS="\t"
+  $2=toupper($2)
+  $3=toupper($3)
+  print $1, 1, $2, $3, $5/$6
+}' $rt.GCTA | sort -k1,1 > $rt.txt
+
+dir=`pwd`/$rt
+for pop in MET NTR YFS
+do
+  if [ ! -d $dir/$pop ]; then
+     mkdir -p $dir/$pop
+  fi
+  join -1 2 -2 1 $TWAS/$pop.bim $rt.txt | awk -f $TWAS/CLEAN_ZSCORES.awk | awk '{$2="";print}' > $dir/$pop/twas2.txt
+done
+
+parallel -j8 -S b01,b02,b03,b04,b05,b06,b07,b08 twas2.sh {1} {2} {3} {4} {5} ::: $TWAS ::: $TWAS2 ::: $dir ::: MET NTR YFS ::: $(seq 1000)
+twas2-collect.sh $rt
+
+````
+The input does not have SNP positions so a dummy one is used.
+
+##### GIANT EXAMPLE
+
 The GIANT consortium study of BMI on Europeans led to the following tab-delimited summary statistics, sorted by SNPs, as in Locke, et al. (2015), called 
 [BMI-EUR.gz](http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz) in brief, 
 ```
