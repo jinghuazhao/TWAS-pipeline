@@ -11,7 +11,7 @@ Assuming that `TWAS` software has been installed at `/genetics/bin/TWAS`, to fac
 cd /genetics/bin/TWAS
 for pop in MET NTR YFS
 do
-  ls /genetics/bin/TWAS/WEIGHTS_$1| sed 's\/\\g' > $pop.lst
+  ls WEIGHTS_$1| sed 's\/\\g' > $pop.lst
 done
 ```
 ##### TWAS-pipeline
