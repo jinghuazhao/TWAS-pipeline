@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # 27-6-2016 MRC-Epid JHZ
 
 S=$1
