@@ -21,7 +21,7 @@ Following this, it can be updated later on with `git pull`. As usual, `TWAS.sh`,
 
  **GNU Parallel**. Further information is available from [here](http://www.gnu.org/software/parallel/).
 
-#### EXECUTIONS
+#### RUNNING THE PIPELINE
 
 Input to the pipeline is a GWAS file `$zfile` containing SNP id, SNP position, effect allele, alternative allele and z-scores, all sorted by SNP id. We first  align the `$zfile` into working directory `$dir/$pop` for each population,  
 ```
