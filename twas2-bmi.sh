@@ -7,33 +7,20 @@ wget http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_m
 wget http://www.broadinstitute.org/collaboration/giant/images/f/f0/All_ancestries_SNP_gwas_mc_merge_nogc.tbl.uniq.gz
 ln -sf SNP_gwas_mc_merge_nogc.tbl.uniq.gz BMI-EUR.gz
 ln -sf All_ancestries_SNP_gwas_mc_merge_nogc.tbl.uniq.gz BMI-ALL.gz
+rt=`pwd`
 for dir in EUR ALL
 do
+    cd $rt/$dir
+    gunzip -c $rt/bmi/BMI-$dir.gz | awk '(NR>1){FS=OFS="\t";print $1, $2, $3, $5/$6}' | sort -t$'\t' -k1,1 > bmi.txt
     for pop in MET NTR YFS
     do
         if [ ! -d $dir/$pop ]; then
            mkdir -p $dir/$pop
+           cd $pop
+           ln -sf ../bmi.txt twas2.sh
         fi
     done
 done
-rt=`pwd`
-cd $rt/ALL
-gunzip -c $rt/bmi/BMI-ALL.gz | awk '(NR>1){FS=OFS="\t";print $1, $2, $3, $5/$6}' | sort -t$'\t' -k1,1 > bmi.txt
-cd $rt/EUR
-gunzip -c $rt/bmi/BMI-EUR.gz | awk '(NR>1){FS=OFS="\t";print $1, $2, $3, $5/$6}' | sort -t$'\t' -k1,1 > bmi.txt
-dir=/genetics/data/CGI/TWAS-pipeline
-cd $rt/EUR/MET
-ln -sf ../bmi.txt twas2.txt
-cd $rt/EUR/NTR
-ln -sf ../bmi.txt twas2.txt
-cd $rt/EUR/YFS
-ln -sf ../bmi.txt twas2.txt
-cd $rt/ALL/MET
-ln -sf ../bmi.txt twas2.txt
-cd $rt/ALL/NTR
-ln -sf ../bmi.txt twas2.txt
-cd $rt/ALL/YFS
-ln -sf ../bmi.txt twas2.txt
 cd $rt
 
 # running the two sets of summary statistics using eight cores on each of the nodes b01-b08
