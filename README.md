@@ -27,7 +27,7 @@ Input to the pipeline is a GWAS file `$zfile` containing SNP id, SNP position, e
 ```
 for pop in MET NTR YFS
 do
-  join -1 2 -2 1 /genetics/bin/TWAS/$pop.bim $zfile  | awk -f CLEAN_ZSCORES.awk  > dir/$pop/$zfile
+  join -1 2 -2 1 /genetics/bin/TWAS/$pop.bim $zfile  | awk -f /genetics/bin/TWAS/CLEAN_ZSCORES.awk  > $dir/$pop/$zfile
 done
 ```
 We can simply run the pipeline using eight cores (`-j8`) using the following codes,
