@@ -22,7 +22,7 @@ In our system, both have been installed under `/genetics/bin/TWAS` and `/genetic
 
 #### RUNNING THE PIPELINE
 
-Input to the pipeline is a GWAS result file `$zfile` containing SNP id, SNP position, reference allele, alternative allele and z-scores, all sorted by SNP id. We first  align the `$zfile` into working directory `$dir/$pop` for each population,  
+Input to the pipeline is a GWAS result file `$zfile` containing SNP id, SNP position, reference allele, alternative allele and z-scores, all sorted by SNP id. We first align the `$zfile` into working directory `$dir/$pop` for each population,  
 ```
 TWAS=/genetics/bin/TWAS
 for pop in MET NTR YFS
@@ -30,12 +30,13 @@ do
   if [ ! -d $dir/$pop ]; then
      mkdir $dir/$pop
   fi
-  join -1 2 -2 1 $TWAS/$pop.bim $zfile  | awk -f $TWAS/CLEAN_ZSCORES.awk  > $dir/$pop/$zfile
+  join -1 2 -2 1 $TWAS/$pop.bim $zfile  | awk -f $TWAS/CLEAN_ZSCORES.awk  > $dir/$pop/twas2.txt
 done
 ```
 We can simply run the pipeline using eight cores (`-j8`) using the following codes,
 ```
-parallel -j8 twas2.sh {1} {2} {3} {4} ::: $zfile ::: $dir ::: MET NTR YFS ::: $(seq 1000) 
+TWAS2=/genetics/bin/TWAS2-pipeline
+parallel -j8 twas2.sh {1} {2} {3} {4} ::: $TWAS ::: TWAS2 ::: $dir ::: MET NTR YFS ::: $(seq 1000) 
 ```
 Once this is done, we can collect all the imputation results via
 ```
@@ -43,7 +44,7 @@ twas2-collect.sh $dir
 ```
 To obtain results for a particular gene in a specific population, e.g., BRCA1 in the YFS population, we use `twas2-1.sh` instead.
 ```
-twas2-1.sh $zfile $dir YFS BRCA1
+twas2-1.sh $TWAS $TWAS2 $dir YFS BRCA1
 ```
 
 #### EXAMPLE APPLICATIONS
@@ -69,20 +70,21 @@ rs10000013	A	C	-2.15909
 ```
 Now that the GWAS summary statistics file contains no SNP positions, but has already been sorted by SNP id and aligned by strand, we can then call twas2.sh as follows,
 ```
-cd /genetics/data/CGI/TWAS-pipeline/EUR/MET
-ln -s ../bmi.txt
-cd /genetics/data/CGI/TWAS-pipeline/EUR/NTR
-ln -s ../bmi.txt
-cd /genetics/data/CGI/TWAS-pipeline/EUR/YFS
-ln -s ../bmi.txt
-cd /genetics/data/CGI/TWAS-pipeline
-twas2.sh bmi.txt EUR MET 1
+dir=/genetics/data/CGI/TWAS-pipeline
+cd $dir/EUR/MET
+ln -sf ../bmi.txt twas2.txt
+cd $dir/EUR/NTR
+ln -sf ../bmi.txt twas2.txt
+cd $dir/EUR/YFS
+ln -sf ../bmi.txt twas2.txt
+cd $dir
+twas2.sh $TWAS $TWAS2 $dir/EUR MET 1
 ```
 where MET specifies weights from METSIM population as in Gusev et al. (2016) and we start from block 1 of the gene list.
 
 As this may be time-consuming, we resort to parallel computing,
 ```
-parallel -j8 twas2.sh {1} {2} {3} {4} ::: bmi.txt ::: EUR ::: MET NTR YFS ::: $(seq 1000) 
+parallel -j8 twas2.sh {1} {2} {3} {4} {5} ::: $TWAS ::: $TWAS2 ::: $dir/EUR ::: MET NTR YFS ::: $(seq 1000) 
 ```
 where we iterate through all sets of weight (MET, NTR and YFS) and all blocks of genes using 8 CPUs.
 
@@ -95,11 +97,9 @@ twas2-collect.sh ALL
 ```
 In particular, imputation can also be done for a specific gene, e.g., BRCA1 and YFS:
 ```
-twas2-1.sh menopause.txt BRCA1 YFS BRCA1
+twas2-1.sh $TWAS $TWAS2 $dir/EUR YFS BRCA1
 ```
 so the results are written into BRCA1/YFS/BRCA1.imp. Note that by doing so, intermediate files with extensions `.join`, `.sort`, `.zscore` are available for check
-
-The generation of `bmi.txt` in both cases were through `twas2-setup.sh`, including `MET.lst`, `NTR.lst` and `YFS.lst` called by `twas2.sh`. 
 
 #### IN GENERAL
 
