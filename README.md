@@ -27,7 +27,9 @@ Input to the pipeline is a GWAS file `$zfile` containing SNP id, SNP position, e
 ```
 for pop in MET NTR YFS
 do
-  mkdir $dir/$pop
+  if [ ! -d $dir/$pop ]; then
+     mkdir $dir/$pop
+  fi
   join -1 2 -2 1 /genetics/bin/TWAS/$pop.bim $zfile  | awk -f /genetics/bin/TWAS/CLEAN_ZSCORES.awk  > $dir/$pop/$zfile
 done
 ```
@@ -35,7 +37,7 @@ We can simply run the pipeline using eight cores (`-j8`) using the following cod
 ```
 parallel -j8 twas2.sh {1} {2} {3} {4} ::: $zfile ::: $dir ::: MET NTR YFS ::: $(seq 1000) 
 ```
-where `mkdir` creates working directories for specific populations. Once this is done, we can collect all the imputation results via
+Once this is done, we can collect all the imputation results via
 ```
 twas2-collect.sh $dir
 ```
