@@ -1,8 +1,20 @@
 # Transcriptome-Wide Association Analysis Pipeline (TWAS-pipeline)
 
-#### SETUP
+#### REQUIREMENTS
 
-THe package assumes that `TWAS` software has been installed at `/genetics/bin/TWAS`, while `TWAS-pipeline` is installed in `/genetics/data/CGI/TWAS-pipeline`. Parallel computing is done via [GNU parallel](http://www.gnu.org/software/parallel/).
+The pipeline requires [TWAS](http://sashagusev.github.io/TWAS/), including its associate files.
+
+Parallel computing is done via [GNU parallel](http://www.gnu.org/software/parallel/).
+
+Assuming that `TWAS` software has been installed at `/genetics/bin/TWAS`, while `TWAS-pipeline` is installed at `/genetics/data/CGI/TWAS-pipeline`, to facilitate computation using provided weights from `TWAS`, lists of genes in the three population have been made through the following scripts,
+```
+cd /genetics/bin/TWAS
+for pop in MET NTR YFS
+do
+  ls /genetics/bin/TWAS/WEIGHTS_$1| sed 's\/\\g' > $pop.lst
+done
+```
+To align strand, AWK program from the `TWAS` web site is also available from `/genetics/bin/TWAS`.
 
 #### Example
 
@@ -77,16 +89,16 @@ The selection of SNPs should comply with 1000Genomes-imputated data, e.g., `refF
 
 An example is provided on a recent study of body bone mineral density (TBBMD). The relevant filesa ll have prefix bmd- and some are listed as follows,
 
- Files           |        Description 
------------------|-------------------
- bmd.sh          |        to generate chromosome-specific z-scores 
- bmd.do          |        Stata program to flag non-missing individuals 
- bmd/TBBMD.gz    |        the GWAS summary statistics 
- bmd-twas.sh     |        script for TWAS by SNP
- bmd-twas2.sh    |        region selection based on position rather than rsid 
- bmd-summary.sh  |        To put together all imputation results into bmd.imp 
+ Files             |        Description 
+-------------------|-------------------
+ `bmd.sh`          |        to generate chromosome-specific z-scores 
+ `bmd.do`          |        Stata program to flag non-missing individuals 
+ `bmd/TBBMD.gz`    |        the GWAS summary statistics 
+ `bmd-twas.sh`     |        script for TWAS by SNP
+ `bmd-twas2.sh`    |        region selection based on position rather than rsid 
+ `bmd-summary.sh`  |        To put together all imputation results into bmd.imp 
 
-The automation would involve bmi-twas.sh and bmd-twas2.sh.
+The automation would involve `bmd-twas.sh` and `bmd-twas2.sh`.
 
 
 ### REFERENCES
