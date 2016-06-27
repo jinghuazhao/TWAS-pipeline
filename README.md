@@ -16,7 +16,7 @@ To align strand, AWK program from the `TWAS` web site is also available from `/g
 ```
 git clone https://github.com/jinghuazhao/TWAS-pipeline
 ```
-Following this, using the following command to update,
+Following this, using the following command to update later on,
 ```
 git pull
 ```
