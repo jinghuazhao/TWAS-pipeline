@@ -67,15 +67,22 @@ rs10000012	G	C	-1.75926
 rs10000013	A	C	-2.15909
 ...
 ```
-Now that the GWAS summary statistics have already been sorted by SNP id and aligned by strand, we can then call twas2.sh as follows,
+Now that the GWAS summary statistics file contains no SNP positions, but has already been sorted by SNP id and aligned by strand, we can then call twas2.sh as follows,
 ```
+cd /genetics/data/CGI/TWAS-pipeline/EUR/MET
+ln -s ../bmi.txt
+cd /genetics/data/CGI/TWAS-pipeline/EUR/NTR
+ln -s ../bmi.txt
+cd /genetics/data/CGI/TWAS-pipeline/EUR/YFS
+ln -s ../bmi.txt
+cd /genetics/data/CGI/TWAS-pipeline
 twas2.sh bmi.txt EUR MET 1
 ```
 where MET specifies weights from METSIM population as in Gusev et al. (2016) and we start from block 1 of the gene list.
 
 As this may be time-consuming, we resort to parallel computing,
 ```
-parallel -j8 /genetics/data/CGI/TWAS-pipeline/twas2.sh {1} {2} {3} {4} ::: bmi.txt ::: EUR ::: MET NTR YFS ::: $(seq 1000) 
+parallel -j8 twas2.sh {1} {2} {3} {4} ::: bmi.txt ::: EUR ::: MET NTR YFS ::: $(seq 1000) 
 ```
 where we iterate through all sets of weight (MET, NTR and YFS) and all blocks of genes using 8 CPUs.
 
