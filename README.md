@@ -12,7 +12,7 @@ do
   ls WEIGHTS_$1 | sed 's\/\\g' > $pop.lst
 done
 ```
-**TWAS-pipeline**. The pipeline can be installed as follows,
+**TWAS-pipeline**. The pipeline are installed as follows,
 ```
 git clone https://github.com/jinghuazhao/TWAS-pipeline
 ```
