@@ -16,6 +16,10 @@ To align strand, AWK program from the `TWAS` web site is also available from `/g
 ```
 git clone https://github.com/jinghuazhao/TWAS-pipeline
 ```
+Following this, using the following command to update,
+```
+git pull
+```
 As usual, executable files such as `TWAS.sh` and `twas2.sh`, `twas2-collect.sh` are availble from the $PATH environment.
 
 #### EXECUTIONS
