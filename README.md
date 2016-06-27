@@ -2,7 +2,7 @@
 
 #### INSTALLATIONS
 
-The pipeline requires [TWAS](http://sashagusev.github.io/TWAS/), including its associate [weight files](https://data.broadinstitute.org/alkesgroup/TWAS/) and [AWK program](https://data.broadinstitute.org/alkesgroup/TWAS/ETC/CLEAN_ZSCORES.tar.bz2) to be unpacked. Parallel computing is done via [GNU parallel](http://www.gnu.org/software/parallel/).
+The pipeline requires [TWAS](http://sashagusev.github.io/TWAS/), including its associate [weight files](https://data.broadinstitute.org/alkesgroup/TWAS/) and [AWK program](https://data.broadinstitute.org/alkesgroup/TWAS/ETC/CLEAN_ZSCORES.tar.bz2) to be unpacked.
 
 **TWAS**. Assuming that `TWAS` software has been installed at `/genetics/bin/TWAS`, to facilitate computation using provided weights from `TWAS`, lists of genes in the three population have been made through the following scripts,
 ```
@@ -18,6 +18,8 @@ git clone https://github.com/jinghuazhao/TWAS-pipeline
 ```
 Following this, it can be updated later on with `git pull`. As usual, `TWAS.sh`, `twas2.sh`, `twas2-collect.sh` and `twas2-1.sh` are executable and availble from the $PATH environment. These are achieved with `chmod +x twas2.sh twas2-collect.sh twas2-1.sh` and 
 `export PATH=/genetics/bin:$PATH` in your `.bashrc`, respectively.
+
+ Parallel computing is done via [GNU parallel](http://www.gnu.org/software/parallel/); please visit its web site for further information.
 
 #### EXECUTIONS
 
