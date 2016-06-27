@@ -27,6 +27,10 @@ where `mkdir` creates working directories for specific populations. Once this is
 ```
 sh twas2-collect.sh $dir
 ```
+It is possible to obtain results for a particular gene in a specific population, e.g., BRCA1 in the YFS population.
+```
+sh twas2-1.sh $zfile $dir YFS BRCA1
+```
 
 #### EXAMPLE APPLICATIONS
 
