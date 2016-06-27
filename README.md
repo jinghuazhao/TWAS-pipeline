@@ -2,7 +2,7 @@
 
 #### INSTALLATIONS
 
-The pipeline requires [TWAS](http://sashagusev.github.io/TWAS/), including its associate [weight files](https://data.broadinstitute.org/alkesgroup/TWAS/) to be unpacked. Parallel computing is done via [GNU parallel](http://www.gnu.org/software/parallel/).
+The pipeline requires [TWAS](http://sashagusev.github.io/TWAS/), including its associate [weight files](https://data.broadinstitute.org/alkesgroup/TWAS/) and [AWK program](https://data.broadinstitute.org/alkesgroup/TWAS/ETC/CLEAN_ZSCORES.tar.bz2) to be unpacked. Parallel computing is done via [GNU parallel](http://www.gnu.org/software/parallel/).
 
 ##### TWAS
 
@@ -14,8 +14,6 @@ do
   ls /genetics/bin/TWAS/WEIGHTS_$1| sed 's\/\\g' > $pop.lst
 done
 ```
-To align strand, [AWK program](https://data.broadinstitute.org/alkesgroup/TWAS/ETC/CLEAN_ZSCORES.tar.bz2) from the `TWAS` web site is also available from `/genetics/bin/TWAS`.
-
 ##### TWAS-pipeline
 
 The pipeline can be installed as follows,
