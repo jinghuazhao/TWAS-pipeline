@@ -36,7 +36,7 @@ done
 We can simply run the pipeline using eight cores (`-j8`) using the following codes,
 ```
 TWAS2=/genetics/bin/TWAS2-pipeline
-parallel -j8 twas2.sh {1} {2} {3} {4} ::: $TWAS ::: $TWAS2 ::: $dir ::: MET NTR YFS ::: $(seq 1000) 
+parallel -j8 twas2.sh {1} {2} {3} {4} {5} ::: $TWAS ::: $TWAS2 ::: $dir ::: MET NTR YFS ::: $(seq 1000) 
 ```
 Once this is done, we can collect all the imputation results via
 ```
