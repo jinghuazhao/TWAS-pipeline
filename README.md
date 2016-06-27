@@ -22,7 +22,7 @@ In our system, both have been installed under `/genetics/bin/TWAS` and `/genetic
 
 #### RUNNING THE PIPELINE
 
-Input to the pipeline is a GWAS file `$zfile` containing SNP id, SNP position, reference allele, alternative allele and z-scores, all sorted by SNP id. We first  align the `$zfile` into working directory `$dir/$pop` for each population,  
+Input to the pipeline is a GWAS result file `$zfile` containing SNP id, SNP position, reference allele, alternative allele and z-scores, all sorted by SNP id. We first  align the `$zfile` into working directory `$dir/$pop` for each population,  
 ```
 TWAS=/genetics/bin/TWAS
 for pop in MET NTR YFS
