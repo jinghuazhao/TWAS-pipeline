@@ -4,7 +4,7 @@
 
 The pipeline requires [TWAS](http://sashagusev.github.io/TWAS/), including its associate [weight files](https://data.broadinstitute.org/alkesgroup/TWAS/) and [AWK program](https://data.broadinstitute.org/alkesgroup/TWAS/ETC/CLEAN_ZSCORES.tar.bz2) to be unpacked.
 
-**TWAS**. Assuming that `TWAS` software has been installed at `/genetics/bin/TWAS`, to facilitate computation using provided weights from `TWAS`, lists of genes in the three population have been made through the following scripts,
+**TWAS**. Lists of genes in the three population have been made through the following scripts,
 ```
 cd /genetics/bin/TWAS
 for pop in MET NTR YFS
@@ -16,8 +16,7 @@ done
 ```
 git clone https://github.com/jinghuazhao/TWAS-pipeline
 ```
-Make sure `TWAS.sh`, `twas2.sh`, `twas2-collect.sh` and `twas2-1.sh` are executable and available from the $PATH environment. These are achieved with `chmod +x twas2.sh twas2-collect.sh twas2-1.sh` under Bash and 
-`export PATH=/genetics/bin:$PATH` in your `.bashrc`, respectively.
+In our system, both have been installed under `/genetics/bin/TWAS` and `/genetics/bin/TWAS-pipeline` whose executables (`TWAS.sh` and `TWAS_get_weights.sh` for `TWAS` and `twas2.sh`, `twas2-collect.sh` and `twas2-1.sh` for `TWAS-pipeline`) have symbol links under `/genetics/bin` and available from the $PATH environment.
 
  **GNU Parallel**. Further information is available from [here](http://www.gnu.org/software/parallel/).
 
