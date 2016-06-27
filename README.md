@@ -2,11 +2,9 @@
 
 #### REQUIREMENTS
 
-The pipeline requires [TWAS](http://sashagusev.github.io/TWAS/), including its associate files.
+The pipeline requires [TWAS](http://sashagusev.github.io/TWAS/), including its associate files. Parallel computing is done via [GNU parallel](http://www.gnu.org/software/parallel/).
 
-Parallel computing is done via [GNU parallel](http://www.gnu.org/software/parallel/).
-
-Assuming that `TWAS` software has been installed at `/genetics/bin/TWAS`, while `TWAS-pipeline` is installed at `/genetics/data/CGI/TWAS-pipeline`, to facilitate computation using provided weights from `TWAS`, lists of genes in the three population have been made through the following scripts,
+Assuming that `TWAS` software has been installed at `/genetics/bin/TWAS`, while `TWAS-pipeline` has been installed at `/genetics/data/CGI/TWAS-pipeline`, to facilitate computation using provided weights from `TWAS`, lists of genes in the three population have been made through the following scripts,
 ```
 cd /genetics/bin/TWAS
 for pop in MET NTR YFS
@@ -16,7 +14,7 @@ done
 ```
 To align strand, AWK program from the `TWAS` web site is also available from `/genetics/bin/TWAS`.
 
-#### Example
+#### EXAMPLE APPLICATIONS
 
 The GIANT consortiium study of BMI on Europeans led to the following tab-delimited summary statistics, sorted by SNPs, as in Locke, et al. (2015), called 
 [BMI-EUR.gz](http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz) in brief, 
