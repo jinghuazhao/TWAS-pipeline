@@ -16,7 +16,7 @@ To align strand, AWK program from the `TWAS` web site is also available from `/g
 
 #### EXECUTIONS
 
-The pipeline requires a GWAS file is available, containing SNP id, effect allele, alternative allele and z-scores, all sorted by SNP id.
+The pipeline requires a GWAS file to be available, containing SNP id, effect allele, alternative allele and z-scores, all sorted by SNP id.
 
 Assuming that the GWAS file called `zfile` from the working directory `dir`, we can simply run the pipeline using eight cores (`-j8`) using the following codes,
 ```
