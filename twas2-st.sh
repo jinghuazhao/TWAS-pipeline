@@ -1,4 +1,8 @@
 #!/bin/sh
-# 26-6-2016 MRC-Epid JHZ
+# 27-6-2016 MRC-Epid JHZ
 
-parallel -j8 -S b01,b02,b03,b04,b05,b06,b07,b08 /genetics/data/CGI/TWAS-pipeline/twas2.sh {1} {2} {3} {4} ::: bmi.txt ::: ALL EUR ::: MET NTR YFS ::: $(seq 1000) 
+S=$1
+zfile=$2
+dir=$3
+
+parallel -j8 -S $S /genetics/data/CGI/TWAS-pipeline/twas2.sh {1} {2} {3} {4} ::: $zfile ::: $dir ::: MET NTR YFS ::: $(seq 1000) 
