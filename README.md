@@ -1,4 +1,4 @@
-## Transcriptome-Wide Association Analysis Pipeline (TWAS-pipeline)
+### Transcriptome-Wide Association Analysis Pipeline (TWAS-pipeline)
 
 #### INSTALLATIONS
 
