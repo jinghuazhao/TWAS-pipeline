@@ -1,11 +1,6 @@
 #!/bin/sh
 # 27-6-2016 MRC-Epid JHZ
 
-cd /genetics/bin/TWAS
-for pop in MET NTR YFS
-do
-  ls /genetics/bin/TWAS/WEIGHTS_$1| sed 's\/\\g' > $pop.lst
-done
 cd /genetics/data/CGI/TWAS-pipeline
 mkdir -p /scratch2/tempjhz22/bmi
 ln -sf /scratch2/tempjhz22/bmi
