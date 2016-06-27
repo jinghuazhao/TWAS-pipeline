@@ -30,7 +30,7 @@ sh twas2-collect.sh $dir
 
 #### EXAMPLE APPLICATIONS
 
-The GIANT consortiium study of BMI on Europeans led to the following tab-delimited summary statistics, sorted by SNPs, as in Locke, et al. (2015), called 
+The GIANT consortium study of BMI on Europeans led to the following tab-delimited summary statistics, sorted by SNPs, as in Locke, et al. (2015), called 
 [BMI-EUR.gz](http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz) in brief, 
 ```
 SNP	A1	A2	Freq1.Hapmap	b	se	p	N
