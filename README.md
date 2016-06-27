@@ -20,7 +20,15 @@ Following this, using the following command to update later on,
 ```
 git pull
 ```
-As usual, executable files such as `TWAS.sh` and `twas2.sh`, `twas2-collect.sh` are availble from the $PATH environment.
+As usual, `TWAS.sh`, `twas2.sh`, `twas2-collect.sh` and `twas2-1.sh` are executable and availble from the $PATH environment. These are achived with
+```
+chmod +x twas2.sh twas2-collect.sh twas2-1.sh
+```
+and
+```
+export PATH=/genetics/bin:$PATH
+```
+in your `.bashrc`, respectively.
 
 #### EXECUTIONS
 
