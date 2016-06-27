@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # 27-6-2016 MRC-Epid JHZ
 
 mkdir -p bmi
@@ -21,10 +21,17 @@ cd $rt/ALL
 gunzip -c $rt/bmi/BMI-ALL.gz | awk '(NR>1){FS=OFS="\t";print $1, $2, $3, $5/$6}' | sort -t$'\t' -k1,1 > bmi.txt
 cd $rt/EUR
 gunzip -c $rt/bmi/BMI-EUR.gz | awk '(NR>1){FS=OFS="\t";print $1, $2, $3, $5/$6}' | sort -t$'\t' -k1,1 > bmi.txt
+dir=/genetics/data/CGI/TWAS-pipeline
+cd $rt/EUR/MET
+ln -sf ../bmi.txt twas2.txt
+cd $rt/EUR/NTR
+ln -sf ../bmi.txt twas2.txt
+cd $rt/EUR/YFS
+ln -sf ../bmi.txt twas2.txt
+cd $rt
 
 # running the two sets of summary statistics using eight cores on each of the nodes b01-b08
-cd $rt
-parallel -j8 -S b01,b02,b03,b04,b05,b06,b07,b08 /genetics/data/CGI/TWAS-pipeline/twas2.sh {1} {2} {3} {4} ::: bmi.txt ::: ALL EUR ::: MET NTR YFS ::: $(seq 1000) 
+parallel -j8 -S b01,b02,b03,b04,b05,b06,b07,b08 twas2.sh {1} {2} {3} {4} {5} ::: $TWAS ::: $TWAS2 ::: $rt/ALL $rt/EUR ::: MET NTR YFS ::: $(seq 1000) 
 
 # The following adds SNP positions
 # gunzip -c BMI-EUR.gz | awk '(NR>1)' | sort -t$'\t' -k1,1 > t.txt
