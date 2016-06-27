@@ -28,6 +28,12 @@ cd $rt/EUR/NTR
 ln -sf ../bmi.txt twas2.txt
 cd $rt/EUR/YFS
 ln -sf ../bmi.txt twas2.txt
+cd $rt/ALL/MET
+ln -sf ../bmi.txt twas2.txt
+cd $rt/ALL/NTR
+ln -sf ../bmi.txt twas2.txt
+cd $rt/ALL/YFS
+ln -sf ../bmi.txt twas2.txt
 cd $rt
 
 # running the two sets of summary statistics using eight cores on each of the nodes b01-b08
