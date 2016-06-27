@@ -12,7 +12,7 @@ do
   ls /genetics/bin/TWAS/WEIGHTS_$1| sed 's\/\\g' > $pop.lst
 done
 ```
-To align strand, AWK program from the `TWAS` web site is also available from `/genetics/bin/TWAS`. The pipeline can be installed as follows,
+To align strand, [weights](https://data.broadinstitute.org/alkesgroup/TWAS/) and [AWK program](https://data.broadinstitute.org/alkesgroup/TWAS/ETC/CLEAN_ZSCORES.tar.bz2) from the `TWAS` web site is also available from `/genetics/bin/TWAS`. The pipeline can be installed as follows,
 ```
 git clone https://github.com/jinghuazhao/TWAS-pipeline
 ```
