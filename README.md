@@ -4,7 +4,7 @@
 
 The pipeline requires [TWAS](http://sashagusev.github.io/TWAS/), including its associate files. Parallel computing is done via [GNU parallel](http://www.gnu.org/software/parallel/).
 
-Assuming that `TWAS` software has been installed at `/genetics/bin/TWAS`, while `TWAS-pipeline` has been installed at `/genetics/data/CGI/TWAS-pipeline`, to facilitate computation using provided weights from `TWAS`, lists of genes in the three population have been made through the following scripts,
+Assuming that `TWAS` software has been installed at `/genetics/bin/TWAS`, to facilitate computation using provided weights from `TWAS`, lists of genes in the three population have been made through the following scripts,
 ```
 cd /genetics/bin/TWAS
 for pop in MET NTR YFS
@@ -12,7 +12,11 @@ do
   ls /genetics/bin/TWAS/WEIGHTS_$1| sed 's\/\\g' > $pop.lst
 done
 ```
-To align strand, AWK program from the `TWAS` web site is also available from `/genetics/bin/TWAS`. As usual, executable files such as `TWAS.sh` and `twas2.sh`, `twas2-collect.sh` are availble from the $PATH environment.
+To align strand, AWK program from the `TWAS` web site is also available from `/genetics/bin/TWAS`. The pipeline can be installed as follows,
+```
+git clone https://github.com/jinghuazhao/TWAS-pipeline
+```
+As usual, executable files such as `TWAS.sh` and `twas2.sh`, `twas2-collect.sh` are availble from the $PATH environment.
 
 #### EXECUTIONS
 
