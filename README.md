@@ -38,14 +38,14 @@ in your `.bashrc`, respectively.
 
 #### EXECUTIONS
 
-The pipeline requires a GWAS file to be available, containing SNP id, SNP position, effect allele, alternative allele and z-scores, all sorted by SNP id.
+Input to the pipeline is a GWAS file `$zfile` containing SNP id, SNP position, effect allele, alternative allele and z-scores, all sorted by SNP id. We first  align the `$zfile` into working directory `$dir/$pop` for each population,  
 ```
 for pop in MET NTR YFS
 do
   join -1 2 -2 1 /genetics/bin/TWAS/$pop.bim $zfile  | awk -f CLEAN_ZSCORES.awk  > dir/$pop/$zfile
 done
 ```
-This align the original GWAS file `$zfile` into each  working directory `$dir/$pop`, we can simply run the pipeline using eight cores (`-j8`) using the following codes,
+We can simply run the pipeline using eight cores (`-j8`) using the following codes,
 ```
 parallel -j8 twas2.sh {1} {2} {3} {4} ::: $zfile ::: $dir ::: MET NTR YFS ::: $(seq 1000) 
 ```
@@ -53,7 +53,7 @@ where `mkdir` creates working directories for specific populations. Once this is
 ```
 twas2-collect.sh $dir
 ```
-It is possible to obtain results for a particular gene in a specific population, e.g., BRCA1 in the YFS population.
+To obtain results for a particular gene in a specific population, e.g., BRCA1 in the YFS population, we use `twas2-1.sh` instead.
 ```
 twas2-1.sh $zfile $dir YFS BRCA1
 ```
