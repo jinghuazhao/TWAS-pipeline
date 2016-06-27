@@ -1,6 +1,6 @@
 # Transcriptome-Wide Association Analysis Pipeline (TWAS-pipeline)
 
-#### REQUIREMENTS
+#### INSTALLATIONS
 
 The pipeline requires [TWAS](http://sashagusev.github.io/TWAS/), including its associate files. Parallel computing is done via [GNU parallel](http://www.gnu.org/software/parallel/).
 
@@ -13,6 +13,20 @@ do
 done
 ```
 To align strand, AWK program from the `TWAS` web site is also available from `/genetics/bin/TWAS`.
+
+#### EXECUTIONS
+
+The pipeline requires a GWAS file is available, containing SNP id, effect allele, alternative allele and z-scores, all sorted by SNP id.
+
+Assuming that the GWAS file called `zfile` from the working directory `dir`, we can simply run the pipeline using eight cores (`-j8`) using the following codes,
+```
+mkdir $dir/MET $dir/NTR $dir/YFS
+parallel -j8 twas2.sh {1} {2} {3} {4} ::: $zfile ::: $dir ::: MET NTR YFS ::: $(seq 1000) 
+```
+where `mkdir` creates working directories for specific populations. Once this is done, we can collect all the imputation results via
+```
+sh twas2-collect.sh $dir
+```
 
 #### EXAMPLE APPLICATIONS
 
