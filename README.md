@@ -2,7 +2,7 @@
 
 #### SETUP
 
-THe package assumes that `TWAS` software has been installed at `/genetics/bin/TWAS`, while `TWAS-pipeline` is installed in `/genetics/data/CGI/TWAS-pipeline`. Parallel computing is done via GNU parallel.
+THe package assumes that `TWAS` software has been installed at `/genetics/bin/TWAS`, while `TWAS-pipeline` is installed in `/genetics/data/CGI/TWAS-pipeline`. Parallel computing is done via [GNU parallel](http://www.gnu.org/software/parallel/).
 
 #### Example
 
