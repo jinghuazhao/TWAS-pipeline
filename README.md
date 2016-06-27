@@ -27,6 +27,7 @@ Input to the pipeline is a GWAS file `$zfile` containing SNP id, SNP position, e
 ```
 for pop in MET NTR YFS
 do
+  mkdir $dir/$pop
   join -1 2 -2 1 /genetics/bin/TWAS/$pop.bim $zfile  | awk -f /genetics/bin/TWAS/CLEAN_ZSCORES.awk  > $dir/$pop/$zfile
 done
 ```
