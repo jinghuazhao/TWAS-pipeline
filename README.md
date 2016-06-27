@@ -67,7 +67,7 @@ rs10000012	G	C	-1.75926
 rs10000013	A	C	-2.15909
 ...
 ```
-Now that  the GWAS summary statistics have already been sorted by SNP id and aligned by strand, we can then call twas2.sh as follows,
+Now that the GWAS summary statistics have already been sorted by SNP id and aligned by strand, we can then call twas2.sh as follows,
 ```
 twas2.sh bmi.txt EUR MET 1
 ```
@@ -86,7 +86,7 @@ The imputation resuls are available from
 twas2-collect.sh EUR
 twas2-collect.sh ALL
 ```
-All these have been provided in the repository with prefix `twas2`-. In particular, imputation can also be done for a specific gene, e.g., BRCA1 and YFS:
+In particular, imputation can also be done for a specific gene, e.g., BRCA1 and YFS:
 ```
 twas2-1.sh menopause.txt BRCA1 YFS BRCA1
 ```
