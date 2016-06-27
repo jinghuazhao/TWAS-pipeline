@@ -12,7 +12,7 @@ do
   ls /genetics/bin/TWAS/WEIGHTS_$1| sed 's\/\\g' > $pop.lst
 done
 ```
-To align strand, AWK program from the `TWAS` web site is also available from `/genetics/bin/TWAS`.
+To align strand, AWK program from the `TWAS` web site is also available from `/genetics/bin/TWAS`. As usual, executable files such as `TWAS.sh` and `twas2.sh`, `twas2-collect.sh` are availble from the $PATH environment.
 
 #### EXECUTIONS
 
@@ -25,11 +25,11 @@ parallel -j8 twas2.sh {1} {2} {3} {4} ::: $zfile ::: $dir ::: MET NTR YFS ::: $(
 ```
 where `mkdir` creates working directories for specific populations. Once this is done, we can collect all the imputation results via
 ```
-sh twas2-collect.sh $dir
+twas2-collect.sh $dir
 ```
 It is possible to obtain results for a particular gene in a specific population, e.g., BRCA1 in the YFS population.
 ```
-sh twas2-1.sh $zfile $dir YFS BRCA1
+twas2-1.sh $zfile $dir YFS BRCA1
 ```
 
 #### EXAMPLE APPLICATIONS
@@ -55,7 +55,7 @@ rs10000013	A	C	-2.15909
 ```
 We can then call twas2.sh as follows,
 ```
-sh twas2.sh bmi.txt EUR MET 1
+twas2.sh bmi.txt EUR MET 1
 ```
 where MET specifies weights from METSIM population as in Gusev et al. (2016) and we start from block 1 of the gene list.
 
@@ -69,12 +69,12 @@ If we provide `/genetics/data/CGI/TWAS-pipeline/ALL/bmi.txt` based on all popula
 
 The imputation resuls are available from
 ```
-sh twas2-collect.sh EUR
-sh twas2-collect.sh ALL
+twas2-collect.sh EUR
+twas2-collect.sh ALL
 ```
 All these have been provided in the repository with prefix `twas2`-. In particular, imputation can also be done for a specific gene, e.g., BRCA1 and YFS:
 ```
-sh twas2-1.sh menopause.txt BRCA1 YFS BRCA1
+twas2-1.sh menopause.txt BRCA1 YFS BRCA1
 ```
 so the results are written into BRCA1/YFS/BRCA1.imp. Note that by doing so, intermediate files with extensions `.join`, `.sort`, `.zscore` are available for check
 
