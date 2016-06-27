@@ -16,11 +16,7 @@ done
 ```
 git clone https://github.com/jinghuazhao/TWAS-pipeline
 ```
-Following this, using the following command to update later on,
-```
-git pull
-```
-As usual, `TWAS.sh`, `twas2.sh`, `twas2-collect.sh` and `twas2-1.sh` are executable and availble from the $PATH environment. These are achieved with
+Following this, it can be updated later on with `git pull`. As usual, `TWAS.sh`, `twas2.sh`, `twas2-collect.sh` and `twas2-1.sh` are executable and availble from the $PATH environment. These are achieved with
 ```
 chmod +x twas2.sh twas2-collect.sh twas2-1.sh
 ```
