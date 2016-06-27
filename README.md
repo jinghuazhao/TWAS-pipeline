@@ -24,12 +24,13 @@ In our system, both have been installed under `/genetics/bin/TWAS` and `/genetic
 
 Input to the pipeline is a GWAS file `$zfile` containing SNP id, SNP position, effect allele, alternative allele and z-scores, all sorted by SNP id. We first  align the `$zfile` into working directory `$dir/$pop` for each population,  
 ```
+TWAS=/genetics/bin/TWAS
 for pop in MET NTR YFS
 do
   if [ ! -d $dir/$pop ]; then
      mkdir $dir/$pop
   fi
-  join -1 2 -2 1 /genetics/bin/TWAS/$pop.bim $zfile  | awk -f /genetics/bin/TWAS/CLEAN_ZSCORES.awk  > $dir/$pop/$zfile
+  join -1 2 -2 1 $TWAS/$pop.bim $zfile  | awk -f $TWAS/CLEAN_ZSCORES.awk  > $dir/$pop/$zfile
 done
 ```
 We can simply run the pipeline using eight cores (`-j8`) using the following codes,
