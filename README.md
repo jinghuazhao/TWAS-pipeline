@@ -14,7 +14,7 @@ do
   ls /genetics/bin/TWAS/WEIGHTS_$1| sed 's\/\\g' > $pop.lst
 done
 ```
-To align strand, [AWK program](https://data.broadinstitute.org/alkesgroup/TWAS/ETC/CLEAN_ZSCORES.tar.bz2) from the `TWAS` web site is also available from `/genetics/bin/TWAS`. 
+To align strand, [AWK program](https://data.broadinstitute.org/alkesgroup/TWAS/ETC/CLEAN_ZSCORES.tar.bz2) from the `TWAS` web site is also available from `/genetics/bin/TWAS`.
 
 ##### TWAS-pipeline
 
@@ -26,7 +26,7 @@ Following this, using the following command to update later on,
 ```
 git pull
 ```
-As usual, `TWAS.sh`, `twas2.sh`, `twas2-collect.sh` and `twas2-1.sh` are executable and availble from the $PATH environment. These are achived with
+As usual, `TWAS.sh`, `twas2.sh`, `twas2-collect.sh` and `twas2-1.sh` are executable and availble from the $PATH environment. These are achieved with
 ```
 chmod +x twas2.sh twas2-collect.sh twas2-1.sh
 ```
@@ -38,11 +38,15 @@ in your `.bashrc`, respectively.
 
 #### EXECUTIONS
 
-The pipeline requires a GWAS file to be available, containing SNP id, effect allele, alternative allele and z-scores, all sorted by SNP id.
-
-Assuming that the GWAS file called `zfile` from the working directory `dir`, we can simply run the pipeline using eight cores (`-j8`) using the following codes,
+The pipeline requires a GWAS file to be available, containing SNP id, SNP position, effect allele, alternative allele and z-scores, all sorted by SNP id.
 ```
-mkdir $dir/MET $dir/NTR $dir/YFS
+for pop in MET NTR YFS
+do
+  join -1 2 -2 1 /genetics/bin/TWAS/$pop.bim $zfile  | awk -f CLEAN_ZSCORES.awk  > dir/$pop/$zfile
+done
+```
+This align the original GWAS file `$zfile` into each  working directory `$dir/$pop`, we can simply run the pipeline using eight cores (`-j8`) using the following codes,
+```
 parallel -j8 twas2.sh {1} {2} {3} {4} ::: $zfile ::: $dir ::: MET NTR YFS ::: $(seq 1000) 
 ```
 where `mkdir` creates working directories for specific populations. Once this is done, we can collect all the imputation results via
@@ -75,7 +79,7 @@ rs10000012	G	C	-1.75926
 rs10000013	A	C	-2.15909
 ...
 ```
-We can then call twas2.sh as follows,
+Now that  the GWAS summary statistics have already been sorted by SNP id and aligned by strand, we can then call twas2.sh as follows,
 ```
 twas2.sh bmi.txt EUR MET 1
 ```
