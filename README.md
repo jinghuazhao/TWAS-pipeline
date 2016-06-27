@@ -30,7 +30,7 @@ do
   if [ ! -d $dir/$pop ]; then
      mkdir $dir/$pop
   fi
-  join -1 2 -2 1 $TWAS/$pop.bim $zfile  | awk -f $TWAS/CLEAN_ZSCORES.awk  > $dir/$pop/twas2.txt
+  join -1 2 -2 1 $TWAS/$pop.bim $zfile  | awk -f $TWAS/CLEAN_ZSCORES.awk | awk '{$2="";print}' > $dir/$pop/twas2.txt
 done
 ```
 We can simply run the pipeline using eight cores (`-j8`) using the following codes,
