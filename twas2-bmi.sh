@@ -16,8 +16,7 @@ do
     do
         if [ ! -d $dir/$pop ]; then
            mkdir -p $dir/$pop
-           cd $pop
-           ln -sf ../bmi.txt twas2.txt
+           ln -sf ../bmi.txt $dir/$pop/twas2.txt
         fi
     done
 done
