@@ -100,7 +100,7 @@ rs10000012	G	C	-1.75926
 rs10000013	A	C	-2.15909
 ...
 ```
-Now that the GWAS summary statistics file contains no SNP positions, but has already been sorted by SNP id and aligned by strand, we can then call twas2.sh as follows,
+Now that the GWAS summary statistics file contains no SNP positions, but has already been sorted by SNP id and aligned by strand, we can then call `twas2.sh` as follows,
 ```
 dir=/genetics/data/CGI/TWAS-pipeline
 cd $dir/EUR/MET
@@ -120,7 +120,7 @@ parallel -j8 twas2.sh {1} {2} {3} {4} {5} ::: $TWAS ::: $TWAS2 ::: $dir/EUR ::: 
 ```
 where we iterate through all sets of weight (MET, NTR and YFS) and all blocks of genes using 8 CPUs.
 
-If we provide `/genetics/data/CGI/TWAS-pipeline/ALL/bmi.txt` based on all population results, called  [BMI-ALL.gz](http://www.broadinstitute.org/collaboration/giant/images/f/f0/All_ancestries_SNP_gwas_mc_merge_nogc.tbl.uniq.gz) in brief, then we simply replace EUR with EUR ALL in the call to parallel above.
+If we provide `/genetics/data/CGI/TWAS-pipeline/ALL/bmi.txt` based on all population results, called  [BMI-ALL.gz](http://www.broadinstitute.org/collaboration/giant/images/f/f0/All_ancestries_SNP_gwas_mc_merge_nogc.tbl.uniq.gz) in brief, then we simply replace $dir/EUR with $dir/EUR $dir/ALL in the call to parallel above.
 
 The imputation resuls are available from
 ```
