@@ -106,9 +106,9 @@ ln -sf EUR/bmi.txt EUR/MET/twas2.txt
 dir=`pwd`
 twas2.sh $TWAS $TWAS2 $dir/EUR MET 1
 ```
-where MET specifies weights from METSIM population as in Gusev et al. (2016) and we start from block 1 of the gene list.
+where MET specifies weights from METSIM population as in Gusev et al. (2016) and we start from block 1 of the gene list involving 25 genes.
 
-As this may be time-consuming, we resort to parallel computing,
+As this may be time-consuming, we resort to parallel computing for all blocks,
 ```
 parallel -j8 twas2.sh {1} {2} {3} {4} {5} ::: $TWAS ::: $TWAS2 ::: $dir/EUR ::: MET ::: $(seq 1000) 
 ```
