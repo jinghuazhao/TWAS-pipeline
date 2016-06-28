@@ -103,7 +103,7 @@ Now that the GWAS summary statistics file contains no SNP positions, but has alr
 ```
 dir=`pwd`
 mkdir -p $dir/EUR/MET
-ln -sf ../bmi.txt $dir/EUR/twas2.txt
+ln -sf $dir/EUR/bmi.txt $dir/EUR/MET/twas2.txt
 twas2.sh $TWAS $TWAS2 $dir/EUR MET 1
 ```
 where MET specifies weights from METSIM population as in Gusev et al. (2016) and we start from block 1 of the gene list.
