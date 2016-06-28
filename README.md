@@ -114,7 +114,7 @@ parallel -j8 twas2.sh {1} {2} {3} {4} {5} ::: $TWAS ::: $TWAS2 ::: $dir/EUR ::: 
 ```
 where we iterate through all sets of weight (MET, NTR and YFS) and all blocks of genes using 8 CPUs.
 
-If we provide `ALL/bmi.txt` based on all population results, called  [BMI-ALL.gz](http://www.broadinstitute.org/collaboration/giant/images/f/f0/All_ancestries_SNP_gwas_mc_merge_nogc.tbl.uniq.gz) in brief, then we simply replace $dir/EUR with $dir/EUR $dir/ALL in the call to parallel above.
+If we provide `ALL/bmi.txt` based on all population results, called  [BMI-ALL.gz](http://www.broadinstitute.org/collaboration/giant/images/f/f0/All_ancestries_SNP_gwas_mc_merge_nogc.tbl.uniq.gz) in brief, and create all the necessary links as bove, then we simply replace $dir/EUR with $dir/EUR $dir/ALL in the call to parallel above.
 
 The imputation resuls are available from
 ```
