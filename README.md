@@ -90,7 +90,7 @@ rs10000012	G	C	0.1917	-0.0095	0.0054	0.07853	233933
 rs10000013	A	C	0.8333	-0.0095	0.0044	0.03084	233886
 ...
 ```
-from which we generated the following z-score file `/genetics/data/CGI/TWAS-pipeline/EUR/bmi.txt`:
+from which we generated the following z-score file `EUR/bmi.txt`:
 ```
 rs10	C	A	-0.571429
 rs1000000	G	A	0.0227273
@@ -119,7 +119,7 @@ parallel -j8 twas2.sh {1} {2} {3} {4} {5} ::: $TWAS ::: $TWAS2 ::: $dir/EUR ::: 
 ```
 where we iterate through all sets of weight (MET, NTR and YFS) and all blocks of genes using 8 CPUs.
 
-If we provide `/genetics/data/CGI/TWAS-pipeline/ALL/bmi.txt` based on all population results, called  [BMI-ALL.gz](http://www.broadinstitute.org/collaboration/giant/images/f/f0/All_ancestries_SNP_gwas_mc_merge_nogc.tbl.uniq.gz) in brief, then we simply replace $dir/EUR with $dir/EUR $dir/ALL in the call to parallel above.
+If we provide `ALL/bmi.txt` based on all population results, called  [BMI-ALL.gz](http://www.broadinstitute.org/collaboration/giant/images/f/f0/All_ancestries_SNP_gwas_mc_merge_nogc.tbl.uniq.gz) in brief, then we simply replace $dir/EUR with $dir/EUR $dir/ALL in the call to parallel above.
 
 The imputation resuls are available from
 ```
