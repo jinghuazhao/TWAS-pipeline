@@ -11,11 +11,11 @@ do
   ls WEIGHTS_$1 | sed 's\/\\g' > $pop.lst
 done
 ```
-**TWAS-pipeline**. The pipeline are installed as follows,
+**TWAS-pipeline**. The pipeline is installed as follows,
 ```
 git clone https://github.com/jinghuazhao/TWAS-pipeline
 ```
-In our system, both have been installed under `/genetics/bin/TWAS` and `/genetics/bin/TWAS-pipeline` whose executables (`TWAS.sh` and `TWAS_get_weights.sh` for `TWAS` and `twas2.sh`, `twas2-collect.sh` and `twas2-1.sh` for `TWAS-pipeline`) have symbol links under `/genetics/bin` and available from the $PATH environment.
+In our system, `TWAS.sh` and `TWAS_get_weights.sh` for `TWAS` and `twas2.sh`, `twas2-collect.sh` and `twas2-1.sh` for `TWAS-pipeline` have symbol links under `/genetics/bin` and available from the $PATH environment.
 
  **GNU Parallel**. Further information is available from [here](http://www.gnu.org/software/parallel/).
 
