@@ -2,9 +2,8 @@
 
 #### INSTALLATIONS
 
-The pipeline requires [TWAS](http://sashagusev.github.io/TWAS/), including its associate [weight files](https://data.broadinstitute.org/alkesgroup/TWAS/) and [z-score clean program](https://data.broadinstitute.org/alkesgroup/TWAS/ETC/CLEAN_ZSCORES.tar.bz2) to be unpacked.
-
-**TWAS**. Lists of genes in the three population are made through the following scripts,
+**TWAS**. [TWAS](http://sashagusev.github.io/TWAS/) along with its associate [weight files](https://data.broadinstitute.org/alkesgroup/TWAS/) and [z-score clean program](https://data.broadinstitute.org/alkesgroup/TWAS/ETC/CLEAN_ZSCORES.tar.bz2) needs to be unpacked. In addition,
+lists of genes in the three population are made through the following scripts,
 ```
 cd /genetics/bin/TWAS
 for pop in MET NTR YFS
