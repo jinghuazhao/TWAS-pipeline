@@ -57,7 +57,7 @@ A complete analysis on an in-house example on a file called `YMen_LRR_UKBB.GCTA`
 TWAS=/genetics/bin/TWAS
 TWAS2=/genetics/bin/TWAS-pipeline
 
-# format tab-delimited data into SNP_name, SNP_Pos, Ref_allele, Alt_allele, Z-score sorted by SNP_name
+# obtained tab-delimited data with SNP_name, SNP_Pos, Ref_allele, Alt_allele, Z-score sorted by SNP_name
 rt=YMen_LRR_UKBB
 awk '
 (NR>1) {
