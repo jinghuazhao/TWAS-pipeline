@@ -1,5 +1,5 @@
-#!/usr/bash
-# 27-6-2016 MRC-Epid JHZ
+#!/bin/bash
+# 29-6-2016 MRC-Epid JHZ
 
 src=$1
 
