@@ -21,7 +21,7 @@ In our system, `TWAS.sh` and `TWAS_get_weights.sh` for `TWAS` and `twas2.sh`, `t
 
 #### RUNNING THE PIPELINE
 
-Input to the pipeline is a GWAS result file `$zfile` containing SNP id, SNP position, reference allele, alternative allele and z-scores, all sorted by SNP id. We first align the `$zfile` into working directory `$dir/$pop` for each population,  
+Input to the pipeline is a GWAS result file `$zfile` containing SNP id, SNP position, reference allele, alternative allele and z-scores, all sorted by SNP id. We first create a `$zfile` at working directory `$dir/$pop` for each population,  
 ```
 TWAS=/genetics/bin/TWAS
 for pop in MET NTR YFS
@@ -32,7 +32,7 @@ do
   join -1 2 -2 1 $TWAS/$pop.bim $zfile  | awk -f $TWAS/CLEAN_ZSCORES.awk | awk '{$2="";print}' > $dir/$pop/twas2.txt
 done
 ```
-We can simply run the pipeline using eight cores (`-j8`) using the following codes,
+We can run the pipeline using eight cores (`-j8`) using the following codes,
 ```
 TWAS2=/genetics/bin/TWAS2-pipeline
 parallel -j8 twas2.sh {1} {2} {3} {4} {5} ::: $TWAS ::: $TWAS2 ::: $dir ::: MET NTR YFS ::: $(seq 1000) 
@@ -108,7 +108,7 @@ twas2.sh $TWAS $TWAS2 $dir/EUR MET 1
 ```
 where MET specifies weights from METSIM population as in Gusev et al. (2016) and we start from block 1 of the gene list involving 25 genes.
 
-As this may be time-consuming, we resort to parallel computing for all blocks,
+Again we resort to parallel computing for all blocks,
 ```
 parallel -j8 twas2.sh {1} {2} {3} {4} {5} ::: $TWAS ::: $TWAS2 ::: $dir/EUR ::: MET ::: $(seq 1000) 
 ```
@@ -147,7 +147,6 @@ Minor changes to the scripts may be required for your own data. The tasks involv
 
 * repeat above steps for all genes and collect restuls
 
-
 The selection of SNPs should comply with 1000Genomes-imputated data, e.g., `refFlat.txt` and `snp_pos.txt` from `locuszoom-1.3` (Pruim, et al. 2010, also see `lz.sql`), and list of SNP-genes pair from (UK BioBank Axiom chip) `Axiom_UKB_WCSG.na34.annot.csv.zip`. Their chromosome-specific counterparts as with SNPs under all genes can also be derived. I have used 1000Genomes information to obtain all autosomal genes as well as SNPs within each genes.
 
 An example is provided on a recent study of body bone mineral density (TBBMD). The relevant filesa ll have prefix bmd- and some are listed as follows,
@@ -162,7 +161,6 @@ An example is provided on a recent study of body bone mineral density (TBBMD). T
  `bmd-summary.sh`  |        To put together all imputation results into bmd.imp 
 
 The automation would involve `bmd-twas.sh` and `bmd-twas2.sh`.
-
 
 ### REFERENCES
 
