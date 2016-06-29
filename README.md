@@ -67,7 +67,7 @@ awk '
   print $1, 1, $2, $3, $5/$6
 }' $rt.GCTA | sort -k1,1 > $rt.txt
 
-# creation of MET, NTR and YFE directories each containing twas2.txt with cleaned Z-scores
+# creation of YMen_LRR_UKBB/MET, YMen_LRR_UKBB/NTR and YMen_LRR_UKBB/YFE directories each containing twas2.txt with cleaned Z-scores
 dir=`pwd`/$rt
 for pop in MET NTR YFS
 do
@@ -77,7 +77,7 @@ do
   join -1 2 -2 1 $TWAS/$pop.bim $rt.txt | awk -f $TWAS/CLEAN_ZSCORES.awk | awk '{$2="";print}' > $dir/$pop/twas2.txt
 done
 
-### parallel computing on 8 cores of each of the 6 nodes, after which the results are tallied
+### parallel computing with 8 cores on all 6 nodes, after which the results are tallied
 parallel -j8 -S b01,b02,b03,b04,b05,b06 twas2.sh {1} {2} {3} {4} {5} ::: $TWAS ::: $TWAS2 ::: $dir ::: MET NTR YFS ::: $(seq 1000)
 twas2-collect.sh $rt
 ````
