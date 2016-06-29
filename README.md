@@ -53,11 +53,11 @@ twas2-1.sh $TWAS $TWAS2 $dir YFS BRCA1
 
 A complete analysis on an in-house example on a file called `YMen_LRR_UKBB.GCTA` is as follows,
 ```
-# directories for TWAS and TWAS-pipeline
+#1. indicate directories for TWAS and TWAS-pipeline
 TWAS=/genetics/bin/TWAS
 TWAS2=/genetics/bin/TWAS-pipeline
 
-# obtained tab-delimited data with SNP_name, SNP_Pos, Ref_allele, Alt_allele, Z-score sorted by SNP_name
+#2. obtain tab-delimited data with SNP_name, SNP_Pos, Ref_allele, Alt_allele, Z-score sorted by SNP_name
 rt=YMen_LRR_UKBB
 awk '
 (NR>1) {
@@ -67,7 +67,7 @@ awk '
   print $1, 1, $2, $3, $5/$6
 }' $rt.GCTA | sort -k1,1 > $rt.txt
 
-# creation of YMen_LRR_UKBB/MET, YMen_LRR_UKBB/NTR and YMen_LRR_UKBB/YFE directories each containing twas2.txt with cleaned Z-scores
+#3. make YMen_LRR_UKBB/MET, YMen_LRR_UKBB/NTR and YMen_LRR_UKBB/YFE directories each containing twas2.txt with cleaned Z-scores
 dir=`pwd`/$rt
 for pop in MET NTR YFS
 do
@@ -77,8 +77,10 @@ do
   join -1 2 -2 1 $TWAS/$pop.bim $rt.txt | awk -f $TWAS/CLEAN_ZSCORES.awk | awk '{$2="";print}' > $dir/$pop/twas2.txt
 done
 
-### parallel computing with 8 cores on all 6 nodes, after which the results are tallied
-parallel -j8 -S b01,b02,b03,b04,b05,b06 twas2.sh {1} {2} {3} {4} {5} ::: $TWAS ::: $TWAS2 ::: $dir ::: MET NTR YFS ::: $(seq 1000)
+#4. perform parallel computing with 8 cores on all 6 nodes
+parallel -j8 -S b01,b02,b03,b04,b05,b06 twato collect} {2} {3} {4} {5} ::: $TWAS ::: $TWAS2 ::: $dir ::: MET NTR YFS ::: $(into
+
+#5. collect results into YMen_LRR_UKBB.imp
 twas2-collect.sh $rt
 ````
 The input does not have SNP positions so a dummy one is used.
