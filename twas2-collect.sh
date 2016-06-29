@@ -3,7 +3,7 @@
 
 src=$1
 
-echo "SNP_name SNP_pos Ref_Allele Alt_Allele Z-Score r2pred" > $src.imp
+echo "Source Pop SNP_name SNP_pos Ref_Allele Alt_Allele Z-Score r2pred" > $src.imp
 grep -H gene $src/*/*imp | grep gene_exp | awk '!/nan/' | sed -e 's/.imp//g;s/:gene_exp//g;s\/\ \g' >> $src.imp
 
 # alternative form
