@@ -25,6 +25,7 @@ In our system, `TWAS.sh` and `TWAS_get_weights.sh` for `TWAS` and `twas2.sh`, `t
 Input to the pipeline is a GWAS result file `$zfile` containing SNP id, SNP position, reference allele, alternative allele and z-scores, all sorted by SNP id. We first create a `$zfile` at working directory `$dir/$pop` for each population,  
 ```
 cd $TWAS
+dir=mywork
 for pop in MET NTR YFS
 do
   if [ ! -d $dir/$pop ]; then
