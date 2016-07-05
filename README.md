@@ -29,7 +29,7 @@ dir=mywork
 for pop in MET NTR YFS
 do
   if [ ! -d $dir/$pop ]; then
-     mkdir $dir/$pop
+     mkdir -p $dir/$pop
   fi
   join -1 2 -2 1 $TWAS/$pop.bim $zfile  | awk -f $TWAS/CLEAN_ZSCORES.awk | awk '{$2="";print}' > $dir/$pop/twas2.txt
 done
