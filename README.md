@@ -16,7 +16,7 @@ done
 ```
 git clone https://github.com/jinghuazhao/TWAS-pipeline
 ```
-In our system, `TWAS.sh` and `TWAS_get_weights.sh` for `TWAS` and `twas2.sh`, `twas2-collect.sh` and `twas2-1.sh` for `TWAS-pipeline` have symbolic links under `/genetics/bin` and available from the $PATH environment.
+In our system, `TWAS.sh` and `TWAS_get_weights.sh` for `TWAS` and `twas2.sh`, `twas2-collect.sh` and `twas2-1.sh` for `TWAS-pipeline` have symbolic links under `/genetics/bin` and available from the $PATH environment. Moreover, a Stata function wrapping `twas2.sh` is also available.
 
  **GNU Parallel**. Further information is available from [here](http://www.gnu.org/software/parallel/).
 
