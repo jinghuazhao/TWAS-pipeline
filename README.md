@@ -20,6 +20,7 @@ In our system, `TWAS.sh` and `TWAS_get_weights.sh` for `TWAS` and `twas.sh`, `tw
 
  **GNU Parallel**. Further information is available from [here](http://www.gnu.org/software/parallel/).
 
+
 #### RUNNING THE PIPELINE
 
 Suppose you have a file containing GWAS summary statistics, you cna run the pipeline as follows,
