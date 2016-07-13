@@ -27,7 +27,7 @@ Suppose you have a file containing GWAS summary statistics, you cna run the pipe
 
 twas.sh \<input_file\>
 
-where the `<input_file>` is in tab-delimited format containing SNP_name, SNP_pos, Ref_allele, Alt_allele, Beta and SE.
+where the `<input_file>` is in tab-delimited format containing SNP_name, SNP_pos, Ref_allele, Alt_allele, Beta and SE. The output will be contained in `<input file>.imp`
 
 
 #### IN GENERAL
