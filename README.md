@@ -16,11 +16,55 @@ done
 ```
 git clone https://github.com/jinghuazhao/TWAS-pipeline
 ```
-In our system, `TWAS.sh` and `TWAS_get_weights.sh` for `TWAS` and `twas2.sh`, `twas2-collect.sh` and `twas2-1.sh` for `TWAS-pipeline` have symbolic links under `/genetics/bin` and available from the $PATH environment. Moreover, a Stata function wrapping `twas2.sh` is also available.
+In our system, `TWAS.sh` and `TWAS_get_weights.sh` for `TWAS` and `twas.sh`, `twas2.sh`, `twas2-collect.sh` and `twas2-1.sh` for `TWAS-pipeline` have symbolic links under `/genetics/bin` and available from the $PATH environment. Moreover, a Stata function wrapping `twas2.sh` is also available. A Stata equivalent has been developed by Dr Jian'an Luan.
 
  **GNU Parallel**. Further information is available from [here](http://www.gnu.org/software/parallel/).
 
 #### RUNNING THE PIPELINE
+
+Suppose you have a file containing GWAS summary statistics, you cna run the pipeline as follows,
+
+twas.sh <input file>
+
+where the input file is in tab-delimited format containing SNP_name, SNP_pos, Ref_allele, Alt_allele, Beta and SE.
+
+
+#### IN GENERAL
+
+The weights have to be generated in general. The software TWAS contains two command files:
+
+* `TWAS_get_weights.sh`, which obtains weights (.ld, .cor, .map) from PLINK map/ped pair given a particular locus. It actually wraps up a program in R.
+                        
+* `TWAS.sh`, which conducts imputatation as reported in the Gusev et al. (2016). 
+
+Minor changes to the scripts may be required for your own data. The tasks involved are to  
+
+* extract SNPs in a gene from 1000Gnomes imputed data into PLINK map/ped files
+
+* obtain .ld, .cor and .map with `TWAS_get_weights.sh` for that gene
+
+* select summary statistics (.zscore) for the gene
+
+* conduct imputation with `TWAS.sh` into file .imp
+
+* repeat above steps for all genes and collect restuls
+
+The selection of SNPs should comply with 1000Genomes-imputated data, e.g., `refFlat.txt` and `snp_pos.txt` from `locuszoom-1.3` (Pruim, et al. 2010, also see `lz.sql`), and list of SNP-genes pair from (UK BioBank Axiom chip) `Axiom_UKB_WCSG.na34.annot.csv.zip`. Their chromosome-specific counterparts as with SNPs under all genes can also be derived. I have used 1000Genomes information to obtain all autosomal genes as well as SNPs within each genes.
+
+An example is provided on a recent study of body bone mineral density (TBBMD). The relevant filesa ll have prefix bmd- and some are listed as follows,
+
+ Files             |        Description 
+-------------------|-------------------
+ `bmd.sh`          |        to generate chromosome-specific z-scores 
+ `bmd.do`          |        Stata program to flag non-missing individuals 
+ `bmd/TBBMD.gz`    |        the GWAS summary statistics 
+ `bmd-twas.sh`     |        script for TWAS by SNP
+ `bmd-twas2.sh`    |        region selection based on position rather than rsid 
+ `bmd-summary.sh`  |        To put together all imputation results into bmd.imp 
+
+The automation would involve `bmd-twas.sh` and `bmd-twas2.sh`.
+
+#### TECHNICAL DETAILS
 
 Input to the pipeline is a GWAS result file `$zfile` containing SNP id, SNP position, reference allele, alternative allele and z-scores, all sorted by SNP id. We first create a `$zfile` at working directory `$dir/$pop` for each population,  
 ```
@@ -47,12 +91,7 @@ To obtain results for a particular gene in a specific population, e.g., BRCA1 in
 ```
 twas2-1.sh $TWAS $TWAS2 $dir YFS BRCA1
 ```
-
-#### EXAMPLE APPLICATIONS
-
-##### IN-HOUSE EXAMPLE
-
-A complete analysis on an in-house example on a file called `YMen_LRR_UKBB.GCTA` is as follows,
+An in-house example is run as follows,  on a file called `YMen_LRR_UKBB.GCTA` is as follows,
 ```
 #1. indicate directories for TWAS and TWAS-pipeline
 TWAS=/genetics/bin/TWAS
@@ -86,7 +125,8 @@ twas2-collect.sh $rt
 ````
 The input does not have SNP positions so a dummy one is used.
 
-##### GIANT EXAMPLE
+
+#### GIANT EXAMPLE
 
 The GIANT consortium study of BMI on Europeans led to the following tab-delimited summary statistics, sorted by SNPs, as in Locke, et al. (2015), called 
 [BMI-EUR.gz](http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz) in brief, 
@@ -135,40 +175,6 @@ twas2-1.sh $TWAS $TWAS2 $dir/EUR YFS BRCA1
 ```
 so the results are written into BRCA1/YFS/BRCA1.imp. Note that by doing so, intermediate files with extensions `.join`, `.sort`, `.zscore` are available for check
 
-#### IN GENERAL
-
-The weights have to be generated in general. The software TWAS contains two command files:
-
-* `TWAS_get_weights.sh`, which obtains weights (.ld, .cor, .map) from PLINK map/ped pair given a particular locus. It actually wraps up a program in R.
-                        
-* `TWAS.sh`, which conducts imputatation as reported in the Gusev et al. (2016). 
-
-Minor changes to the scripts may be required for your own data. The tasks involved are to  
-
-* extract SNPs in a gene from 1000Gnomes imputed data into PLINK map/ped files
-
-* obtain .ld, .cor and .map with `TWAS_get_weights.sh` for that gene
-
-* select summary statistics (.zscore) for the gene
-
-* conduct imputation with `TWAS.sh` into file .imp
-
-* repeat above steps for all genes and collect restuls
-
-The selection of SNPs should comply with 1000Genomes-imputated data, e.g., `refFlat.txt` and `snp_pos.txt` from `locuszoom-1.3` (Pruim, et al. 2010, also see `lz.sql`), and list of SNP-genes pair from (UK BioBank Axiom chip) `Axiom_UKB_WCSG.na34.annot.csv.zip`. Their chromosome-specific counterparts as with SNPs under all genes can also be derived. I have used 1000Genomes information to obtain all autosomal genes as well as SNPs within each genes.
-
-An example is provided on a recent study of body bone mineral density (TBBMD). The relevant filesa ll have prefix bmd- and some are listed as follows,
-
- Files             |        Description 
--------------------|-------------------
- `bmd.sh`          |        to generate chromosome-specific z-scores 
- `bmd.do`          |        Stata program to flag non-missing individuals 
- `bmd/TBBMD.gz`    |        the GWAS summary statistics 
- `bmd-twas.sh`     |        script for TWAS by SNP
- `bmd-twas2.sh`    |        region selection based on position rather than rsid 
- `bmd-summary.sh`  |        To put together all imputation results into bmd.imp 
-
-The automation would involve `bmd-twas.sh` and `bmd-twas2.sh`.
 
 ### REFERENCES
 
