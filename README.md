@@ -16,7 +16,7 @@ done
 ```
 git clone https://github.com/jinghuazhao/TWAS-pipeline
 ```
-In our system, `TWAS.sh` and `TWAS_get_weights.sh` for `TWAS` and `twas.sh`, `twas2.sh`, `twas2-collect.sh` and `twas2-1.sh` for `TWAS-pipeline` have symbolic links under `/genetics/bin` and available from the $PATH environment. A [Stata](http://www.stata.com) equivalent has been developed by Dr Jian'an Luan.
+On our system, `TWAS.sh` and `TWAS_get_weights.sh` for `TWAS` and `twas.sh`, `twas2.sh`, `twas2-collect.sh` and `twas2-1.sh` for `TWAS-pipeline` have symbolic links under `/genetics/bin` and available from the $PATH environment. A [Stata](http://www.stata.com) equivalent has been developed by Dr Jian'an Luan.
 
  **GNU Parallel**. Further information is available from [here](http://www.gnu.org/software/parallel/).
 
@@ -67,7 +67,7 @@ The automation would involve `bmd-twas.sh` and `bmd-twas2.sh`.
 
 #### TECHNICAL DETAILS
 
-Input to the pipeline is a GWAS result file `$zfile` containing SNP id, SNP position, reference allele, alternative allele and z-scores, all sorted by SNP id. We first create a `$zfile` at working directory `$dir/$pop` for each population,  
+This section gives insight into the implementation, potentially allowing for more flexibility to tune your data. Input to the pipeline is a GWAS result file `$zfile` containing SNP id, SNP position, reference allele, alternative allele and z-scores, all sorted by SNP id. We first create a `$zfile` at working directory `$dir/$pop` for each population,  
 ```
 cd $TWAS
 dir=mywork
