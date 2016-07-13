@@ -25,9 +25,9 @@ In our system, `TWAS.sh` and `TWAS_get_weights.sh` for `TWAS` and `twas.sh`, `tw
 
 Suppose you have a file containing GWAS summary statistics, you cna run the pipeline as follows,
 
-twas.sh <input file>
+twas.sh `input_file`
 
-where the input file is in tab-delimited format containing SNP_name, SNP_pos, Ref_allele, Alt_allele, Beta and SE.
+where the `input_file` is in tab-delimited format containing SNP_name, SNP_pos, Ref_allele, Alt_allele, Beta and SE.
 
 
 #### IN GENERAL
