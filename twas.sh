@@ -1,7 +1,7 @@
 #!/bin/bash
 # 14-7-2016 MRC-Epid JHZ
 
-if [ $# -lt 1 ] || [[ "$1" == "-h" ]]; then
+if [ $# -lt 1 ] || [ "$1" == "-h" ]; then
     echo "Usage: twas.sh <input>"
     echo "where <input> is in tab-delimited format:"
     echo "SNP_name SNP_pos Ref_allele Alt_allele Beta SE"
