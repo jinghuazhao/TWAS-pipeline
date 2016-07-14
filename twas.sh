@@ -1,5 +1,14 @@
-# 13-7-2016 MRC-Epid JHZ
+#!/bin/bash
+# 14-7-2016 MRC-Epid JHZ
 
+if [ $# -ne 1 ]; then
+    echo "Usage: twas.sh <input>"
+    echo "where <input> is in tab-delimited format:"
+    echo "SNP_name SNP_pos Ref_allele Alt_allele Beta SE"
+    echo "The output is contained in <input>.imp"
+    exit
+fi
+echo $(basename $0) $# 
 echo TWAS-pipeline:
 echo Step 1 - specify locations of TWAS and TWAS-pipeline
 TWAS=/genetics/bin/TWAS
@@ -27,10 +36,3 @@ echo Step 5 - collect results
 twas2-collect.sh $(basename $1)
 echo Step 6 - tidy up
 rm -rf $dir $1.input
-
-##################################################
-# twas.sh <input>                                #
-# where <input> is in tab-delimited format       #
-# SNP_name SNP_pos Ref_allele Alt_allele Beta SE #
-# The output is contained in <input>.imp         #
-##################################################
