@@ -8,7 +8,7 @@ if [ $# -lt 1 ] || [[ "$1" == "-h" ]]; then
     echo "The output is contained in <input>.imp"
     exit
 fi
-echo $(basename $0) $# 
+echo $(basename $0) $1 
 echo TWAS-pipeline:
 echo Step 1 - specify locations of TWAS and TWAS-pipeline
 TWAS=/genetics/bin/TWAS
