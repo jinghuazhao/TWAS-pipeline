@@ -67,71 +67,10 @@ An example is provided on a recent study of body bone mineral density (TBBMD). T
 
 The automation would involve `bmd-twas.sh` and `bmd-twas2.sh`.
 
-#### TECHNICAL DETAILS
-
-This section gives insight into the implementation, potentially allowing for more flexibility to tune your data. Input to the pipeline is a GWAS result file `$zfile` containing SNP id, SNP position, reference allele, alternative allele and z-scores, all sorted by SNP id. We first create a `$zfile` at working directory `$dir/$pop` for each population,  
-```
-cd $TWAS
-dir=mywork
-for pop in MET NTR YFS
-do
-  if [ ! -d $dir/$pop ]; then
-     mkdir -p $dir/$pop
-  fi
-  join -1 2 -2 1 $TWAS/$pop.bim $zfile  | awk -f $TWAS/CLEAN_ZSCORES.awk | awk '{$2="";print}' > $dir/$pop/twas2.txt
-done
-```
-We can run the pipeline using eight cores (`-j8`) using the following codes,
-```
-TWAS2=/genetics/bin/TWAS2-pipeline
-parallel -j8 twas2.sh {1} {2} {3} {4} {5} ::: $TWAS ::: $TWAS2 ::: $dir ::: MET NTR YFS ::: $(seq 1000) 
-```
-Once this is done, we can collect all the imputation results via
-```
-twas2-collect.sh $dir
-```
-To obtain results for a particular gene in a specific population, e.g., BRCA1 in the YFS population, we use `twas2-1.sh` instead.
-```
-twas2-1.sh $TWAS $TWAS2 $dir YFS BRCA1
-```
-An in-house example is run as follows,  on a file called `YMen_LRR_UKBB.GCTA` is as follows,
-```
-#1. indicate directories for TWAS and TWAS-pipeline
-TWAS=/genetics/bin/TWAS
-TWAS2=/genetics/bin/TWAS-pipeline
-
-#2. obtain tab-delimited data with SNP_name, SNP_Pos, Ref_allele, Alt_allele, Z-score sorted by SNP_name
-rt=YMen_LRR_UKBB
-awk '
-(NR>1) {
-  FS=OFS="\t"
-  $2=toupper($2)
-  $3=toupper($3)
-  print $1, 1, $2, $3, $5/$6
-}' $rt.GCTA | sort -k1,1 > $rt.txt
-
-#3. make YMen_LRR_UKBB/MET, YMen_LRR_UKBB/NTR and YMen_LRR_UKBB/YFE directories each containing twas2.txt with cleaned Z-scores
-dir=`pwd`/$rt
-for pop in MET NTR YFS
-do
-  if [ ! -d $dir/$pop ]; then
-     mkdir -p $dir/$pop
-  fi
-  join -1 2 -2 1 $TWAS/$pop.bim $rt.txt | awk -f $TWAS/CLEAN_ZSCORES.awk | awk '{$2="";print}' > $dir/$pop/twas2.txt
-done
-
-#4. perform parallel computing with 8 cores on all 6 nodes
-parallel -j8 -S b01,b02,b03,b04,b05,b06 twato collect} {2} {3} {4} {5} ::: $TWAS ::: $TWAS2 ::: $dir ::: MET NTR YFS ::: $(into
-
-#5. collect results into YMen_LRR_UKBB.imp
-twas2-collect.sh $rt
-````
-The input does not have SNP positions so a dummy one is used.
-
 
 #### GIANT EXAMPLE
 
-The GIANT consortium study of BMI on Europeans led to the following tab-delimited summary statistics, sorted by SNPs, as in Locke, et al. (2015), called 
+The example shows details of the implementation. The GIANT consortium study of BMI on Europeans led to the following tab-delimited summary statistics, sorted by SNPs, as in Locke, et al. (2015), called 
 [BMI-EUR.gz](http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz) in brief, 
 ```
 SNP	A1	A2	Freq1.Hapmap	b	se	p	N
