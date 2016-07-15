@@ -20,7 +20,6 @@ On our system, `TWAS.sh` and `TWAS_get_weights.sh` for `TWAS` and `twas.sh`, `tw
 
  **GNU Parallel**. Further information is available from [here](http://www.gnu.org/software/parallel/).
 
-
 #### RUNNING THE PIPELINE
 
 Suppose you have a file containing GWAS summary statistics, you cna run the pipeline as follows,
@@ -28,7 +27,6 @@ Suppose you have a file containing GWAS summary statistics, you cna run the pipe
 twas.sh \<input_file\>
 
 where the `<input_file>` is in tab-delimited format containing SNP_name, SNP_pos, Ref_allele, Alt_allele, Beta and SE. The output will be contained in `<input file>.imp`
-
 
 #### IN GENERAL
 
@@ -68,7 +66,6 @@ An example is provided on a recent study of body bone mineral density (TBBMD). T
  `bmd-summary.sh`  |        To put together all imputation results into bmd.imp 
 
 The automation would involve `bmd-twas.sh` and `bmd-twas2.sh`.
-
 
 #### GIANT EXAMPLE
 
