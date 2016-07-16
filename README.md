@@ -52,7 +52,7 @@ From [UCSC](http://genome.ucsc.edu), you obtain the gene bounaries as follows,
 ```
 mysql --user=genome --host=genome-mysql.cse.ucsc.edu -A -D hg19 -e 'select * from refGene' > refGene.txt
 ```
-However, it is often necessary to define a region using a list of SNPs. In this regard, tables such as `snp146` in `hg19` above are needed. From `locuszoom-1.3` (Pruim, et al. 2010) we can extract `refFlat.txt` and `snp_pos.txt` (see `lz.sql`) to build a list of SNP-genes, as with (UK BioBank Axiom chip) `Axiom_UKB_WCSG.na34.annot.csv.zip`. Their chromosome-specific counterparts as with SNPs under all genes can also be derived.
+However, it is often necessary to define a region using a list of SNPs. In this regard, tables such as `snp146` in `hg19` above are needed. From `locuszoom-1.3` (Pruim, et al. 2010) we can extract `refFlat.txt` and `snp_pos.txt` (see `lz.sql`) to build a list of SNP-gene pairs, as with (UK BioBank Axiom chip) `Axiom_UKB_WCSG.na34.annot.csv.zip`. Their chromosome-specific counterparts as with SNPs under all genes can also be derived.
 
 An example is provided on a recent study of body bone mineral density (TBBMD). The relevant files all have prefix bmd- and some are listed as follows,
 
