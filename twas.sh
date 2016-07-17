@@ -1,5 +1,5 @@
 #!/bin/bash
-# 14-7-2016 MRC-Epid JHZ
+# 17-7-2016 MRC-Epid JHZ
 
 if [ $# -lt 1 ] || [ "$1" == "-h" ]; then
     echo "Usage: twas.sh <input>"
@@ -22,7 +22,7 @@ awk ' (NR>1) {
   print $1, $2, $3, $4, $5/$6
 }' $1 | sort -k1,1 > $1.input
 echo Step 3 - make population-specific twas2.txt with cleaned Z-scores
-dir=`pwd`/$(basename $1)
+dir=`pwd`/TWAStmp/$(basename $1)
 for pop in MET NTR YFS
 do
   if [ ! -d $dir/$pop ]; then
