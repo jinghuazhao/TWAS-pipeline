@@ -33,6 +33,6 @@ done
 echo Step 4 - perform analysis
 parallel -j8 -S b01,b02,b03,b04,b05,b06 twas2.sh {1} {2} {3} {4} {5} ::: $TWAS ::: $TWAS2 ::: $dir ::: MET NTR YFS ::: $(seq 1000)
 echo Step 5 - collect results
-twas2-collect.sh $(basename $1)
+twas2-collect.sh $(basename $dir .tmp).imp
 echo Step 6 - tidy up
 rm -rf $dir $1.input
