@@ -22,7 +22,7 @@ awk ' (NR>1) {
   print $1, $2, $3, $4, $5/$6
 }' $1 | sort -k1,1 > $1.input
 echo Step 3 - make population-specific twas2.txt with cleaned Z-scores
-dir=`pwd`/TWAStmp/$(basename $1)
+dir=`pwd`/$(basename $1).tmp
 for pop in MET NTR YFS
 do
   if [ ! -d $dir/$pop ]; then
