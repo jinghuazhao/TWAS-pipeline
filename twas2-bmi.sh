@@ -1,5 +1,5 @@
 #!/bin/bash
-# 27-6-2016 MRC-Epid JHZ
+# 17-7-2016 MRC-Epid JHZ
 
 wget http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz
 wget http://www.broadinstitute.org/collaboration/giant/images/f/f0/All_ancestries_SNP_gwas_mc_merge_nogc.tbl.uniq.gz
@@ -19,7 +19,8 @@ do
     done
 done
 cd $rt
-
+TWAS=/genetics/bin/TWAS
+TWAS2=/genetics/bin/TWAS-pipeline
 # running the two sets of summary statistics using eight cores on each of the nodes b01-b08
 parallel -j8 -S b01,b02,b03,b04,b05,b06,b07,b08 twas2.sh {1} {2} {3} {4} {5} ::: $TWAS ::: $TWAS2 ::: $rt/ALL $rt/EUR ::: MET NTR YFS ::: $(seq 1000) 
 
