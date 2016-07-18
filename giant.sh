@@ -1,12 +1,11 @@
 #!/bin/bash
-# 17-7-2016 MRC-Epid JHZ
+# 18-7-2016 MRC-Epid JHZ
 
 wget http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz
 wget http://www.broadinstitute.org/collaboration/giant/images/f/f0/All_ancestries_SNP_gwas_mc_merge_nogc.tbl.uniq.gz
 ln -sf SNP_gwas_mc_merge_nogc.tbl.uniq.gz BMI-EUR.gz
 ln -sf All_ancestries_SNP_gwas_mc_merge_nogc.tbl.uniq.gz BMI-ALL.gz
 rt=`pwd`
-mkdir EUR ALL
 for dir in EUR ALL
 do
     gunzip -c BMI-$dir.gz | awk '(NR>1){FS=OFS="\t";print $1, $2, $3, $5/$6}' | sort -t$'\t' -k1,1 > $dir/bmi.txt
