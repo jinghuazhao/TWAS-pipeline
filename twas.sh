@@ -1,5 +1,5 @@
 #!/bin/bash
-# 17-7-2016 MRC-Epid JHZ
+# 18-7-2016 MRC-Epid JHZ
 
 if [ $# -lt 1 ] || [ "$1" == "-h" ]; then
     echo "Usage: twas.sh <input>"
@@ -14,7 +14,6 @@ echo Step 1 - specify locations of TWAS and TWAS-pipeline
 TWAS=/genetics/bin/TWAS
 TWAS2=/genetics/bin/TWAS-pipeline
 echo Step 2 - reformat input
-rt=$1
 awk ' (NR>1) {
   FS=OFS="\t"
   $2=toupper($2)
