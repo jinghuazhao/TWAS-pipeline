@@ -1,23 +1,27 @@
 // 19-7-2016 MRC-Epid JHZ
 
-local user="genome"
-local host="genome-mysql.cse.ucsc.edu"
-local query="select bin, name, chrom, strand, txStart, txEnd, name2 from refGene order by chrom, name2"
-!mysql --user="`user'" --host="`host'" -A -D hg19 -e "`query'" > refGene.dat
-insheet using refGene.dat, case clear
-split chrom, p("r")
-split chrom2, p("_")
-ren chrom21 chr
-drop if chr=="X"|chr=="Y"|chr=="Un"
-drop chrom1 chrom2 chrom3 chrom22 chrom23
-do refGene
-refGene
+// uncomment below to obtain refGene.dta
+//local user="genome"
+//local host="genome-mysql.cse.ucsc.edu"
+//local query="select bin, name, chrom, strand, txStart, txEnd, name2 from refGene order by chrom, name2"
+//!mysql --user="`user'" --host="`host'" -A -D hg19 -e "`query'" > refGene.dat
+//insheet using refGene.dat, case clear
+//split chrom, p("r")
+//split chrom2, p("_")
+//ren chrom21 chr
+//drop if chr=="X"|chr=="Y"|chr=="Un"
+//drop chrom1 chrom2 chrom3 chrom22 chrom23
+//do refGene
+//refGene
+local dir="/gen_omics/data/3-2012"
+//outsheet name2 using "`dir'/genes/lists", noname noquote replace
+
+use refGene
 gen genelist=name2
 gen LL=start
 gen UL=end
-local dir="/gen_omics/data/3-2012"
-outsheet name2 using "`dir'/genes/lists", noname noquote replace
-quietly forval j=1/22 {
+local j : env chr
+quietly forval j=`j'/`j' {
   preserve
   keep if chr=="`j'"
   local totalgene=_N
