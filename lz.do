@@ -1,21 +1,6 @@
 // 19-7-2016 MRC-Epid JHZ
 
-// uncomment below to obtain refGene.dta
-//local user="genome"
-//local host="genome-mysql.cse.ucsc.edu"
-//local query="select bin, name, chrom, strand, txStart, txEnd, name2 from refGene order by chrom, name2"
-//!mysql --user="`user'" --host="`host'" -A -D hg19 -e "`query'" > refGene.dat
-//insheet using refGene.dat, case clear
-//split chrom, p("r")
-//split chrom2, p("_")
-//ren chrom21 chr
-//drop if chr=="X"|chr=="Y"|chr=="Un"
-//drop chrom1 chrom2 chrom3 chrom22 chrom23
-//do refGene
-//refGene
 local dir="/gen_omics/data/3-2012"
-//outsheet name2 using "`dir'/genes/lists", noname noquote replace
-
 use refGene
 gen genelist=name2
 gen LL=start
@@ -41,15 +26,3 @@ quietly forval j=`j'/`j' {
     ! awk '{FS=OFS="\t";if($2>=start&&$2<=end) print}' start=`L' end=`U' "`dir'"/snp_pos-`j'.txt >> "`out'"
   }
 }
-
-// The original Bash script has duplicates:
-/*
-rm -f genes.txt
-touch genes.txt
-for chr in `seq 22`
-do
-  awk '(NR>1) {print $1,$3}' refFlat.txt|awk '{sub("chr","",$2);if($2==chr) print $1}' chr=$chr | sort | uniq > genes-${chr}.txt
-  cat genes-${chr}.txt >> genes.txt
-  awk '{FS=OFS="\t";if(NR>1&&$2==chr) print $1, $3}' chr=$chr snp_pos.txt > snp_pos-${chr}.txt
-done
-*/
