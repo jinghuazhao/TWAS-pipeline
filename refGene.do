@@ -57,3 +57,18 @@ postclose `out'
 use `f1', clear
 format %12.0g start end
 end
+
+local user="genome"
+local host="genome-mysql.cse.ucsc.edu"
+local query="select bin, name, chrom, strand, txStart, txEnd, name2 from refGene order by chrom, name2"
+!mysql --user="`user'" --host="`host'" -A -D hg19 -e "`query'" > refGene.dat
+insheet using refGene.dat, case clear
+split chrom, p("r")
+split chrom2, p("_")
+ren chrom21 chr
+drop if chr=="X"|chr=="Y"|chr=="Un"
+drop chrom1 chrom2 chrom3 chrom22 chrom23
+refGene
+local dir="/gen_omics/data/3-2012"
+outsheet name2 using "`dir'/genes/lists", noname noquote replace
+save refGene, replace
