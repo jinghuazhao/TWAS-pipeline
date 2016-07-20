@@ -69,6 +69,9 @@ ren chrom21 chr
 drop if chr=="X"|chr=="Y"|chr=="Un"
 drop chrom1 chrom2 chrom3 chrom22 chrom23
 refGene
+duplicates tag name2, gen(tag)
 local dir="/gen_omics/data/3-2012"
-outsheet name2 using "`dir'/genes/lists", noname noquote replace
+outsheet name2 using "`dir'/genes/lists.", noname noquote replace
+drop if tag!=0
+drop tag
 save refGene, replace
