@@ -74,4 +74,7 @@ local dir="/gen_omics/data/3-2012"
 outsheet name2 using "`dir'/genes/lists.", noname noquote replace
 drop if tag!=0
 drop tag
+forval i=1/22 {
+  outsheet name2 using "`dir'/genes-`i'.txt" if chr=="`i'", noname noquote replace
+}
 save refGene, replace
