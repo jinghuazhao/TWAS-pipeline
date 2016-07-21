@@ -1,21 +1,12 @@
 TWAS-pipeline CookBook
 
-The analysis contains five steps:
-
-1. Obtain meta-analysis results on RSid, position, effect/other alleles, and z-score.
-2. Prepare for gene-specific PLINK map/ped files.
-3. Generate weights using TWAS_get_weights.sh and data from step 2.
-4. Select gene-specific z-scores.
-5. Conduct imputation according to weights from step 3 and z-score from step 4.
-
-
-Example
+The analysis consists of weight generation from PLINK map/ped files and expression phenotypes
+using TWAS_get_weights.sh, to be followed by imputation given z-score from a GWAS.
 
 An example is provided here for total body bone mineral density (TBBMD) analysis and ALG5 
-is used here for illustration. In reality, we will need expression data for steps 1 and 2.
+is used here for illustration.
 
-1. These are files in directory bmd called bmd-1.txt, ..., bmd-22.txt
-2. For ALG5, ALG5.map and ALG5.map were generated via the following command,
+ALG5.map and ALG5.map were generated via the following command,
 
     plink2 --bed /gen_omics/data/EPIC-Norfolk/plink/chr$1.bed \
            --bim /gen_omics/data/EPIC-Norfolk/plink/chr$1.bim \
@@ -25,24 +16,26 @@ is used here for illustration. In reality, we will need expression data for step
            --recode \
            --out ALG5
 
-    where ALG5 contains RSid and bmd.id individuals with non-missing phenotype, respectively.
+where ALG5 contains RSid and bmd.id individuals with non-missing phenotype, respectively.
 
-3. These are ALG5.cor, ALG5.ld and ALG5.map in bmd/twas, which were generated with 
-   command 
+Now we run
 
    TWAS_get_weights.sh ALG5 twas/ALG5
 
-4. This file is ALG5.zscore, generated with command
+to obtain ALG5.cor, ALG5.ld and ALG5.map in bmd/twas,
+
+We have ALG5-specific zscore, generated with command
 
     echo "SNP_ID SNP_Pos Ref_Allele Alt_Allele Z-score" > ALG5.zscore
     sort -k2,2 /gen_omics/data/3-2012/genes/ALG5 > ALG5
     join -j 2 bmd-$1.zscore ALG5 | awk '{t=$1; $1=$2; $2=t; $NF=""; print}'>> ALG5.zscore
 
-5. This is ALG5.imp, in bmd/twas, generated from command
+   
+so as to obtain ALG5.imp from command
 
    TWAS.sh twas/ALG5 ALG5.zscore twas/ALG5
 
-A command file, bmd-twas.sh, is provided which can be executed to conduct steps 2-5 for
+A command file, bmd-twas.sh, is provided which can be executed to conduct these steps for
 individual chromosomes, e.g., sh twas.sh 1, for chromosome 1, sh twas.sh 2, for 
 chromosome 2, etc.
 
