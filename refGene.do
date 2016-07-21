@@ -70,6 +70,7 @@ drop if chr=="X"|chr=="Y"|chr=="Un"
 drop chrom1 chrom2 chrom3 chrom22 chrom23
 refGene
 duplicates tag name2, gen(tag)
+replace name2="THRA1-BTR" if name2=="THRA1/BTR"
 local dir="/gen_omics/data/3-2012"
 outsheet name2 using "`dir'/genes/lists.", noname noquote replace
 drop if tag!=0
