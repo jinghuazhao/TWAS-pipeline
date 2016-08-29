@@ -18,7 +18,7 @@ git clone https://github.com/jinghuazhao/TWAS-pipeline
 ```
 On our system, `TWAS.sh` and `TWAS_get_weights.sh` for `TWAS` and `twas.sh`, `twas2.sh`, `twas2-collect.sh` and `twas2-1.sh` for `TWAS-pipeline` have symbolic links under `/genetics/bin` and available from the $PATH environment. A [Stata](http://www.stata.com) equivalent has been developed by Dr Jian'an Luan.
 
-To accommodate the suggestion of p value in the output, a `pnorm.c` is included which can be compiled as follows,
+To accommodate the suggestion of p value in accordance with the Z-score in the output, a `pnorm.c` is included which can be compiled as follows,
 ```
 gcc pnorm.c -lm -o pnorm
 ```
