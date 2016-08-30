@@ -1,5 +1,5 @@
 #!/bin/bash
-# 29-8-2016 MRC-Epid JHZ
+# 30-8-2016 MRC-Epid JHZ
 
 if [ $# -lt 1 ] || [ "$1" == "-h" ]; then
     echo "Usage: twas-single.sh <input>"
@@ -39,5 +39,5 @@ awk '{
   else {
     printf $0 " ";system(sprintf("pnorm %lf",$3))
   }
-}' $(basename $1).tmp.imp > $(basename $1).imp
+}' $(basename $1).tmp.imp | awk '{t=$5;$5=$4;$4=t;print}' > $(basename $1).imp
 rm -rf $dir $(basename $1).input $(basename $1).tmp.imp
