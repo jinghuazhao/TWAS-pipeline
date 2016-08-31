@@ -22,7 +22,7 @@ To accommodate the suggestion of p value in accordance with the Z-score in the o
 ```
 gcc pnorm.c -lm -o pnorm
 ```
-and a call `pnorm <z score>` yields a p value with more decimal places.
+and a call `pnorm z_score` yields a p value with more decimal places.
 
 **GNU Parallel**. Further information is available from [here](http://www.gnu.org/software/parallel/).
 
@@ -30,13 +30,13 @@ and a call `pnorm <z score>` yields a p value with more decimal places.
 
 Suppose you have a file containing GWAS summary statistics, you cna run the pipeline as follows,
 
-twas.sh \<input_file\>
+twas.sh input_file
 
-where the `<input_file>` is in tab-delimited format containing SNP_name, SNP_pos, Ref_allele, Alt_allele, Beta and SE. The output will be contained in `<input file>.imp`.
+where the `input_file` is in tab-delimited format containing SNP_name, SNP_pos, Ref_allele, Alt_allele, Beta and SE. The output will be contained in `<input file>.imp`.
 
 This assumes that ssh can access nodes in a clusters freely and in case this has not been done, a single node mode is more appropriate,
 
-twas-single.sh \<input_file\>
+twas-single.sh input_file
 
 #### IN GENERAL
 
