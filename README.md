@@ -29,15 +29,15 @@ and a call `pnorm z_score` yields a p value with more decimal places.
 #### RUNNING THE PIPELINE
 
 Suppose you have a file containing GWAS summary statistics, you cna run the pipeline as follows,
-
+```
 twas.sh input_file
-
+```
 where the `input_file` is in tab-delimited format containing SNP_name, SNP_pos, Ref_allele, Alt_allele, Beta and SE. The output will be contained in `<input file>.imp`.
 
 This assumes that ssh can access nodes in a clusters freely and in case this has not been done, a single node mode is more appropriate,
-
+```
 twas-single.sh input_file
-
+```
 #### IN GENERAL
 
 The weights have to be generated in general. The software TWAS contains two command files:
