@@ -88,7 +88,7 @@ The automation would involve `bmd-twas.sh` and `bmd-twas2.sh`.
 
 #### GIANT EXAMPLE
 
-The example shows details of the implementation (see `twas2-bmi.sh`). The GIANT consortium study of BMI on Europeans led to the following tab-delimited summary statistics, sorted by SNPs, as in Locke, et al. (2015), called 
+The example shows details of the implementation (see `giant.sh`). The GIANT consortium study of BMI on Europeans led to the following tab-delimited summary statistics, sorted by SNPs, as in Locke, et al. (2015), called 
 [BMI-EUR.gz](http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz) in brief, 
 ```
 SNP	A1	A2	Freq1.Hapmap	b	se	p	N
