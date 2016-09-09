@@ -65,7 +65,7 @@ Minor changes to the scripts may be required for your own data. The tasks involv
 
 * conduct imputation with `TWAS.sh` into file .imp
 
-* repeat above steps for all genes and collect restuls
+* repeat above steps for all genes and collect results
 
 From [UCSC](http://genome.ucsc.edu), you obtain the gene bounaries as follows,
 ```
