@@ -57,7 +57,7 @@ The weights have to be generated in general. The software TWAS contains two comm
 
 Minor changes to the scripts may be required for your own data. The tasks involved are to  
 
-* extract SNPs in a gene from 1000Gnomes imputed data into PLINK map/ped files
+* extract SNPs in a gene from 1000Genomes imputed data into PLINK map/ped files
 
 * obtain .ld, .cor and .map with `TWAS_get_weights.sh` for that gene
 
