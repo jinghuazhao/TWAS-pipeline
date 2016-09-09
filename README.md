@@ -4,6 +4,7 @@
 
 **TWAS**. 
 
+-----|----------------------------------
 TWAS | http://sashagusev.github.io/TWAS/
 weight files | https://data.broadinstitute.org/alkesgroup/TWAS/
 z-score clean program | https://data.broadinstitute.org/alkesgroup/TWAS/ETC/CLEAN_ZSCORES.tar.bz2
