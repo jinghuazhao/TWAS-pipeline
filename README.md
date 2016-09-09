@@ -4,13 +4,15 @@
 
 **TWAS**. 
 
+The following packages by the developers
+
 Packages              | URLs
 ----------------------|----------------------------------
 TWAS                  | http://sashagusev.github.io/TWAS/
 weight files          | https://data.broadinstitute.org/alkesgroup/TWAS/
 z-score clean program | https://data.broadinstitute.org/alkesgroup/TWAS/ETC/CLEAN_ZSCORES.tar.bz2
 
-by the developers are required and be unpacked. In addition, lists of genes in the three populations are made through the following scripts,
+are required and be unpacked. In addition, lists of genes in the three populations are made through the following scripts,
 ```
 TWAS=/genetics/bin/TWAS
 cd $TWAS
