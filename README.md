@@ -146,3 +146,12 @@ Mancuso N, et al. (2016). Integrating gene expression with summary association s
 
 Pruim RJ, et al. (2010). LocusZoom: regional visualization of genome-wide association scan results. Bioinformatics, 26,2336-2337
 
+   
+### EPIGENOMEWIDE ASSOCIATION
+
+Code     | Description
+---------|------------
+ewas.sh  | EWAS imputation
+ewas.subs| subroutine called by ewas.sh
+
+This implementation used the same idea as TWAS. Data from 1000Genomes imputation were trimmed to those in HapMap II. The `EWAS.bim`, sorted by CpG IDs from its corresponding `PLINK` file, reflects this. The work is still ongoing and will be posted later on.
