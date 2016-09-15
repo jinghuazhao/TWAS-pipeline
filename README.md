@@ -154,4 +154,8 @@ Code     | Description
 ewas.sh  | EWAS imputation
 ewas.subs| subroutine called by ewas.sh
 
-This implementation used the same idea as TWAS. Data from 1000Genomes imputation were trimmed to those in HapMap II. The `EWAS.bim`, sorted by SNP IDs from its corresponding `PLINK` file, reflects this. The work is still ongoing and will be posted later on.
+This implementation used the same idea as TWAS. Data from 1000Genomes imputation were trimmed to those in 
+HapMap II. The `EWAS.bim`, sorted by SNP IDs from its corresponding `PLINK` file, reflects this. Note 
+`CpG.lst` contains CpG IDs with weight files (.cor, .ld, .map).
+
+The work is still ongoing and will be posted later on.
