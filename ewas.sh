@@ -16,9 +16,9 @@ dir=`pwd`/$(basename $1).tmp
 if [ ! -d $dir ]; then
    mkdir -p $dir
 fi
-join -1 2 -2 1 /scratch2/tempjhz22/EWAS/EWAS.bim $(basename $1).input | awk -f $TWAS/CLEAN_ZSCORES.awk | awk '{$2="";print}' > $dir/twas2.txt
+join -1 2 -2 1 $TWAS2/EWAS.bim $(basename $1).input | awk -f $TWAS/CLEAN_ZSCORES.awk | awk '{$2="";print}' > $dir/twas2.txt
 echo Step 4 - perform analysis
-parallel -j8 /genetics/data/twas/2-9-16/ewas.subs {1} {2} {3} {4} ::: $TWAS ::: $TWAS2 ::: $dir ::: $(seq 10000)
+parallel -j8 $TWAS2/ewas.subs {1} {2} {3} {4} ::: $TWAS ::: $TWAS2 ::: $dir ::: $(seq 10000)
 echo Step 5 - collect results
 echo "CpG_ID Z_Score r2pred" > $(basename $1).tmp.imp
 grep -H gene $(basename $1).tmp/*imp | grep gene_exp | awk '!/nan/' | sed -e 's/.imp//g;s/:gene_exp//g;s\/\ \g' | awk '{print $1,$5,$6}'>> $(basename $1).tmp.imp
