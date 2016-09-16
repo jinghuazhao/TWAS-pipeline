@@ -1,5 +1,5 @@
 #!/bin/sh
-#15-9-2016 MRC-Epid JHZ
+#16-9-2016 MRC-Epid JHZ
 
 echo Step 1 - specify locations of TWAS and TWAS-pipeline
 TWAS=/genetics/bin/TWAS
@@ -21,7 +21,7 @@ echo Step 4 - perform analysis
 parallel -j8 $TWAS2/ewas.subs {1} {2} {3} {4} ::: $TWAS ::: $TWAS2 ::: $dir ::: $(seq 10000)
 echo Step 5 - collect results
 echo "CpG_ID Z_Score r2pred" > $(basename $1).tmp.imp
-grep -H gene $(basename $1).tmp/*imp | grep gene_exp | awk '!/nan/' | sed -e 's/.imp//g;s/:gene_exp//g;s\/\ \g' | awk '{print $1,$5,$6}'>> $(basename $1).tmp.imp
+find $(basename $1).tmp -name "*.imp" | xargs -e -n1 -P8 grep -H gene | awk '!/nan/' | awk -vdir=$1/ '{sub(dir,"",$1);sub(/.imp:gene_exp/,"",$1);print $1, $5, $6}'
 echo Step 6 - tidy up
 awk '
 function abs(x)
@@ -53,4 +53,6 @@ function cPhi(x)
 #   printf $0 " ";system(sprintf("pnorm %lf",$2))
   }
 }' $(basename $1).tmp.imp | awk '{t=$3;$3=$4;$4=t;print}' > $(basename $1).imp
-rm -rf $dir $(basename $1).input $(basename $1).tmp.imp
+# rm -rf $dir $(basename $1).input $(basename $1).tmp.imp
+
+# grep -H gene $(basename $1).tmp/*imp | grep gene_exp | awk '!/nan/' | sed -e 's/.imp//g;s/:gene_exp//g;s\/\ \g' | awk '{print $1,$5,$6}'>> $(basename $1).tmp.imp
