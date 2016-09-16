@@ -47,7 +47,7 @@ This assumes that ssh can access nodes in a clusters freely and in case this has
 ```
 twas-single.sh input_file
 ```
-#### IN GENERAL
+#### BUILDING REFERENCE PANEL
 
 The weights have to be generated in general. The software TWAS contains two command files:
 
@@ -86,7 +86,7 @@ An example is provided on a recent study of body bone mineral density (TBBMD). T
 
 The automation would involve `bmd-twas.sh` and `bmd-twas2.sh`.
 
-#### GIANT EXAMPLE
+#### AN EXPOSITION WITH GIANT DATA
 
 The example shows details of the implementation (see `giant.sh`). The GIANT consortium study of BMI on Europeans led to the following tab-delimited summary statistics, sorted by SNPs, as in Locke, et al. (2015), called 
 [BMI-EUR.gz](http://www.broadinstitute.org/collaboration/giant/images/1/15/SNP_gwas_mc_merge_nogc.tbl.uniq.gz) in brief, 
