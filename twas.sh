@@ -16,8 +16,8 @@ TWAS2=/genetics/bin/TWAS-pipeline
 echo Step 2 - reformat input
 awk ' (NR>1) {
   FS=OFS="\t"
-  $2=toupper($3)
-  $3=toupper($4)
+  $3=toupper($3)
+  $4=toupper($4)
   print $1, $2, $3, $4, $5/$6
 }' $1 | sort -k1,1 > $1.input
 echo Step 3 - make population-specific twas2.txt with cleaned Z-scores
