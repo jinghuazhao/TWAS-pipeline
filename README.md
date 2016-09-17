@@ -2,7 +2,7 @@
 
 #### INSTALLATIONS
 
-**TWAS**. 
+**TWAS**
 
 The following packages by the developers
 
