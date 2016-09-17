@@ -54,5 +54,3 @@ function cPhi(x)
   }
 }' $(basename $1).tmp.imp | awk '{t=$3;$3=$4;$4=t;print}' > $(basename $1).imp
 # rm -rf $dir $(basename $1).input $(basename $1).tmp.imp
-
-# grep -H gene $(basename $1).tmp/*imp | grep gene_exp | awk '!/nan/' | sed -e 's/.imp//g;s/:gene_exp//g;s\/\ \g' | awk '{print $1,$5,$6}'>> $(basename $1).tmp.imp
