@@ -1,5 +1,5 @@
 #!/bin/sh
-#16-9-2016 MRC-Epid JHZ
+#17-9-2016 MRC-Epid JHZ
 
 echo Step 1 - specify locations of TWAS and TWAS-pipeline
 TWAS=/genetics/bin/TWAS
