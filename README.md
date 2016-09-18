@@ -161,5 +161,3 @@ EWAS.bim | `PLINK` .bim file sorted by SNP IDs
 
 This implementation used the same idea as TWAS. Data from 1000Genomes imputation were scaled down to those 
 in HapMap II to make the weight generation and imputation more tenable.
-
-The work is still ongoing and will be posted soon.
