@@ -160,7 +160,7 @@ get_weight_subs | subroutine callable from `get_weight.qsub` and `parallel`
 CpG.lst  | list of CpG IDs with weights
 weights/ | directory containing weights for all CpG IDs as specfied in `CpG.lst`
 EWAS/    | directory containing `PLINK` binary files for each probe
-EWAS,pheno | `PLINK` phenotype file with header
+EWAS.pheno | `PLINK` phenotype file with header
 EWAS.bim | `PLINK` .bim file sorted by SNP IDs
 
 This implementation used the same idea as TWAS. Data from 1000Genomes imputation were scaled down to those 
