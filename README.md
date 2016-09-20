@@ -157,12 +157,12 @@ ewas.sh  | EWAS imputation
 ewas.subs| subroutine called by ewas.sh
 get_weight.qsub | SGE script for EWAS weight generation
 get_weight_subs | subroutine callable from `get_weight.qsub` and `parallel`
-CpG.lst  | list of CpG IDs with weights
-weights/ | directory containing weights for all CpG IDs as specfied in `CpG.lst`
+CpG.lst  | list of probe IDs with weights
+weights/ | directory containing weights for all probes as specfied in `CpG.lst`
 EWAS/    | directory containing `PLINK` binary files for each probe
-EWAS.pheno | `PLINK` phenotype file with header
+EWAS.pheno | `PLINK` phenotype file with header for all probes
 EWAS.bim | `PLINK` .bim file sorted by SNP IDs
 
 This implementation used the same idea as TWAS. Data from 1000Genomes imputation were scaled down to those 
 in HapMap II to make the weight generation more tenable to sample size. Note that weights were obtained 
-for all CpG IDs so it is possible to impute for only subset(s) of them.
+for all probes so it is possible to impute for only subset(s) of them.
