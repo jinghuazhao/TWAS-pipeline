@@ -1,13 +1,12 @@
 #!/bin/bash
-# 18-9-2016 MRC-Epid JHZ
-# qsub /genetics/data/twas/2-9-16/get_weight.sh
+# 20-9-2016 MRC-Epid JHZ
 
 # data and weight directories (+t,weights)
-d=/scratch2/tempjhz22/EWAS
+d=/genetics/bin/TWAS-pipeline/EWAS
 
 awk '(NR>=(v-1)*sl+1 && NR<=v*sl)' v=$1 sl=1500 $d/CpG.txt | awk -vd=$d '
 {
-   plink2="/genetics/bin/plink2 --recode --pheno /scratch2/tempjhz22/EWAS.pheno --missing-phenotype -999"
+   plink2=sprintf("/genetics/bin/plink2 --recode --pheno %s.pheno --missing-phenotype -999",d)
    dn=sprintf("%s/%s",d,$1)
    tn=sprintf("%s/tmp/%s",d,$1)
    wn=sprintf("%s/weights/%s",d,$1)
@@ -19,4 +18,4 @@ awk '(NR>=(v-1)*sl+1 && NR<=v*sl)' v=$1 sl=1500 $d/CpG.txt | awk -vd=$d '
    system(sprintf("/bin/rm -f %s.*", tn))
 }' 
 
-# parallel -j8 /genetics/data/2-9-16/get_weight.subs ::: $(seq 200)
+# parallel -j8 /genetics/bin/TWAS-pipeline/get_weight.subs ::: $(seq 200)
