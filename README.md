@@ -149,7 +149,7 @@ Pruim RJ, et al. (2010). LocusZoom: regional visualization of genome-wide associ
    
 ### EPIGENOMEWIDE ASSOCIATION
 
-This is furnished with `ewas.sh` and `ewas.subs`, along with several other files as follows,
+This is furnished with `ewas.sh` and `ewas.subs`, along with a few other files as follows,
 
 Files    | Description
 ---------|------------
@@ -165,4 +165,5 @@ EWAS.bim | `PLINK` .bim file sorted by SNP IDs
 
 This implementation used the same idea as TWAS. Data from 1000Genomes imputation were scaled down to those 
 in HapMap II to make the weight generation more tenable to sample size. Note that weights were obtained 
-for all probes so it is possible to impute for only subset(s) of them.
+for all probes so it is possible to impute for only subset(s) of them. The file `EWAS.bim` was generated
+purely to make it easier to align strands from GWAS summary statistics with those in the reference panel.
