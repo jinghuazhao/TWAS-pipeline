@@ -155,6 +155,8 @@ Files    | Description
 ---------|------------
 ewas.sh  | EWAS imputation
 ewas.subs| subroutine called by ewas.sh
+get_weight.qsub | SGE script for EWAS weight generation
+get_weight_subs | subroutine callable from `get_weight.qsub` and `parallel`
 CpG.lst  | list of CpG IDs with weights
 weights/ | directory containing weights for all CpG IDs as specfied in `CpG.lst`
 EWAS.bim | `PLINK` .bim file sorted by SNP IDs
