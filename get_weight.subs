@@ -1,7 +1,6 @@
 #!/bin/bash
 # 20-9-2016 MRC-Epid JHZ
 
-# data and weight directories (+t,weights)
 d=/genetics/bin/TWAS-pipeline/EWAS
 
 awk '(NR>=(v-1)*sl+1 && NR<=v*sl)' v=$1 sl=1500 $d/CpG.txt | awk -vd=$d '
