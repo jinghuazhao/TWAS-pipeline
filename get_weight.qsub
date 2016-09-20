@@ -1,0 +1,18 @@
+#!/bin/bash
+#$ -S /bin/bash
+#$ -o /scratch2/tempjhz22/EWAS/tmp/Test.o
+#$ -e /scratch2/tempjhz22/EWAS/tmp/Test.e
+#$ -N get_weights
+#$ -q all.q
+#$ -t 1-200
+#$ -l h_vmem=20G
+#$ -l mem_free=20G
+
+# Tell the SGE that this is an array job, with "tasks" to be numbered 1 to 200
+# When a single command in the array job is sent to a computer node,
+# its task number is stored in the variable SGE_TASK_ID,
+# so we can use the value of that variable to get the results we want:
+# /scratch2/Alexia/twas_get_weight_modified.sh $SGE_TASK_ID
+
+/genetics/data/twas/2-9-16/get_weight.subs $SGE_TASK_ID 
+
