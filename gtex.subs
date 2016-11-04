@@ -1,0 +1,22 @@
+#!/bin/bash
+#4-11-2016 MRC-Epid JHZ
+
+TWAS=$1
+TWAS2=$2
+dir=$3
+GTEX_list=$TWAS/GTEX_WEIGHTS.lst
+
+cd $dir
+awk -vv=$4 -vs=30 -vFS="," '(NR>=(v-1)*s+2 && NR<=v*s+1)' $GTEX_list|awk -vTWAS=$TWAS -vTWAS2=$TWAS2 '
+{
+   wn=sprintf("%s/GTEX_WEIGHTS/%s.wgt",TWAS,$1)
+   f=$1
+   sub("/","-",f)
+# zscore setup
+   system(sprintf("echo SNP_ID SNP_Pos Ref_Allele Alt_Allele Z-score > %s.zscore",f))
+   system(sprintf("sort -k1,1 %s.map > %s",wn,f))
+   system(sprintf("join -j1 %s twas2.txt | sort -k2,2n | awk -f %s/twas2-swap.awk >> %s.zscore",f,TWAS2,f))
+# imputation
+   system(sprintf("TWAS.sh %s %s.zscore %s",wn,f,f))
+   system(sprintf("rm %s %s.zscore",f,f))
+}'
