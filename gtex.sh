@@ -20,7 +20,7 @@ join -1 2 -2 1 $TWAS/GTEX_WEIGHTS.bim $(basename $1).input | awk -f $TWAS/CLEAN_
 echo Step 4 - perform analysis
 parallel -j15 $TWAS2/gtex.subs {1} {2} {3} {4} ::: $TWAS ::: $TWAS2 ::: $dir ::: $(seq 932)
 echo Step 5 - collect results
-echo "CpG_ID Z_Score r2pred" > $(basename $1).tmp.imp
+echo "ENSG_ID tissue Z_Score r2pred" > $(basename $1).tmp.imp
 find $(basename $1).tmp -name "*.imp" | xargs -e -n1 -P8 grep -H gene | awk '!/nan/' | awk -vdir=$(basename $1).tmp/ '{sub(dir,"",$1);sub(/.imp:gene_exp/,"",$1);print $1, $5, $6}' >> $(basename $1).tmp.imp
 echo Step 6 - tidy up
 awk '
