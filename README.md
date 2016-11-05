@@ -137,7 +137,7 @@ so the results are written into BRCA1/YFS/BRCA1.imp. Note that by doing so, inte
 
 #### TWAS using GTEx
 
-This is achieved with `gtex.sh` and `gtex.subs` using weights from the GTEx project.
+This is achieved with `gtex.sh` and `gtex.subs` using weights from the GTEx project. Files `GTEX_WEIGHTS.bim` was sorted by RSid and `GTEX_WEIGHTS.lst` was created to facilitate the imputation.
 
 
 ### REFERENCES
