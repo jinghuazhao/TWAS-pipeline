@@ -1,5 +1,5 @@
 #!/bin/sh
-#4-11-2016 MRC-Epid JHZ
+#6-11-2016 MRC-Epid JHZ
 
 echo Step 1 - specify locations of TWAS and TWAS-pipeline
 TWAS=/genetics/bin/TWAS
@@ -56,7 +56,7 @@ function cPhi(x)
    if(NR>1) {t=$3;$3=$4;$4=t;sub("-"," ",$1)}
    print
 }' > $(basename $1).gtex
-# rm -rf $dir $(basename $1).input $(basename $1).tmp.imp
+rm -rf $dir $(basename $1).input $(basename $1).tmp.imp
 
 # cd /genetics/bin/TWAS/ftp
 # grep map *list|sed 's\GTEX_WEIGHTS/\\g'|sed 's/.wgt.map//g' > ../GTEX_WEIGHTS.lst
