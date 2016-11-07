@@ -1,5 +1,5 @@
 #!/bin/sh
-#6-11-2016 MRC-Epid JHZ
+#7-11-2016 MRC-Epid JHZ
 
 echo Step 1 - specify locations of TWAS and TWAS-pipeline
 TWAS=/genetics/bin/TWAS
@@ -16,7 +16,7 @@ dir=`pwd`/$(basename $1).tmp
 if [ ! -d $dir ]; then
    mkdir -p $dir
 fi
-join -1 2 -2 1 $TWAS/GTEX_WEIGHTS.bim $(basename $1).input | awk -f $TWAS/CLEAN_ZSCORES.awk | awk '{$2="";print}' > $dir/twas2.txt
+gunzip -c $TWAS/GTEX_WEIGHTS.bim.gz | join -1 2 -2 1 - $(basename $1).input | awk -f $TWAS2/CLEAN_ZSCORES2.awk | awk '{$2="";print}' > $dir/twas2.txt
 echo Step 4 - perform analysis
 parallel -j15 $TWAS2/gtex.subs {1} {2} {3} {4} ::: $TWAS ::: $TWAS2 ::: $dir ::: $(seq 932)
 echo Step 5 - collect results
@@ -60,4 +60,3 @@ rm -rf $dir $(basename $1).input $(basename $1).tmp.imp
 
 # cd /genetics/bin/TWAS/ftp
 # grep map *list|sed 's\GTEX_WEIGHTS/\\g'|sed 's/.wgt.map//g' > ../GTEX_WEIGHTS.lst
-# sort -k2,2 GTEX_WEIGHTS.bim > ../GTEX_WEIGHTS.bim
