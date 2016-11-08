@@ -1,5 +1,5 @@
 #!/bin/bash
-#7-11-2016 MRC-Epid JHZ
+#8-11-2016 MRC-Epid JHZ
 
 TWAS=$1
 TWAS2=$2

@@ -57,6 +57,3 @@ function cPhi(x)
    print
 }' > $(basename $1).gtex
 rm -rf $dir $(basename $1).input $(basename $1).tmp.imp
-
-# cd /genetics/bin/TWAS/ftp
-# grep map *list|sed 's\GTEX_WEIGHTS/\\g'|sed 's/.wgt.map//g' > ../GTEX_WEIGHTS.lst
