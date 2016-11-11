@@ -1,5 +1,5 @@
 #!/bin/sh
-#17-9-2016 MRC-Epid JHZ
+#11-11-2016 MRC-Epid JHZ
 
 echo Step 1 - specify locations of TWAS and TWAS-pipeline
 TWAS=/genetics/bin/TWAS
@@ -18,7 +18,7 @@ if [ ! -d $dir ]; then
 fi
 join -1 2 -2 1 $TWAS2/EWAS.bim $(basename $1).input | awk -f $TWAS/CLEAN_ZSCORES.awk | awk '{$2="";print}' > $dir/twas2.txt
 echo Step 4 - perform analysis
-parallel -j8 $TWAS2/ewas.subs {1} {2} {3} {4} ::: $TWAS ::: $TWAS2 ::: $dir ::: $(seq 10000)
+parallel -j12 $TWAS2/ewas.subs {1} {2} {3} {4} ::: $TWAS ::: $TWAS2 ::: $dir ::: $(seq 2605)
 echo Step 5 - collect results
 echo "CpG_ID Z_Score r2pred" > $(basename $1).tmp.imp
 find $(basename $1).tmp -name "*.imp" | xargs -e -n1 -P8 grep -H gene | awk '!/nan/' | awk -vdir=$(basename $1).tmp/ '{sub(dir,"",$1);sub(/.imp:gene_exp/,"",$1);print $1, $5, $6}' >> $(basename $1).tmp.imp
@@ -53,4 +53,4 @@ function cPhi(x)
 #   printf $0 " ";system(sprintf("pnorm %lf",$2))
   }
 }' $(basename $1).tmp.imp | awk '{t=$3;$3=$4;$4=t;print}' > $(basename $1).imp
-# rm -rf $dir $(basename $1).input $(basename $1).tmp.imp
+rm -rf $dir $(basename $1).input $(basename $1).tmp.imp
