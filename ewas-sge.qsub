@@ -1,0 +1,12 @@
+#!/bin/bash
+#$ -S /bin/bash
+#$ -V
+#$ -o /tmp/ewas.o
+#$ -e /tmp/ewas.e
+#$ -N EWAS_IMPUTE
+#$ -q all.q
+#$ -t 1-84
+#$ -l h_vmem=20G
+#$ -l mem_free=20G
+
+$TWAS2/ewas-sge.subs $SGE_TASK_ID $TWAS $TWAS2 $dir
