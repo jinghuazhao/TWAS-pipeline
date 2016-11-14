@@ -1,6 +1,16 @@
 #!/bin/sh
-#7-11-2016 MRC-Epid JHZ
+#14-11-2016 MRC-Epid JHZ
 
+
+if [ $# -lt 1 ] || [ "$1" == "-h" ]; then
+    echo "Usage: gtex.sh <input>"
+    echo "where <input> is in tab-delimited format:"
+    echo "SNP_name SNP_pos Ref_allele Alt_allele Beta SE"
+    echo "The output is contained in <input>.gtex"
+    exit
+fi
+echo $(basename $0) $1
+echo TWAS-pipeline:
 echo Step 1 - specify locations of TWAS and TWAS-pipeline
 TWAS=/genetics/bin/TWAS
 TWAS2=/genetics/bin/TWAS-pipeline
