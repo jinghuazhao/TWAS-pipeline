@@ -173,6 +173,6 @@ for all probes so it is possible to impute for only subset(s) of them. The file 
 in order to make it easier to align strands for SNPs as in GWAS with those in the reference panel.
 
    
-### Acknowledgements
+### ACKNOWLEDGEMENTS
 
 The work is possible with an EWAS project within the MRC Epidemiology Unit, for which colleagues and collaborators have contributed.
