@@ -1,5 +1,5 @@
 #!/bin/bash
-#14-9-2016 MRC-Epid JHZ
+#28-11-2016 MRC-Epid JHZ
 
 TWAS=$1
 TWAS2=$2
@@ -7,7 +7,7 @@ dir=$3
 CpGlist=$TWAS2/CpG.lst
 
 cd $dir
-awk -vv=$4 -vs=30 -vFS="," '(NR>=(v-1)*s+2 && NR<=v*s+1)' $CpGlist|awk -vTWAS=$TWAS -vTWAS2=$TWAS2 '
+awk -vv=$4 -vs=30 -vFS="," '(NR>=(v-1)*s+1 && NR<=v*s)' $CpGlist|awk -vTWAS=$TWAS -vTWAS2=$TWAS2 '
 {
    wn=sprintf("%s/weights/%s",TWAS2,$1)
 # zscore setup
