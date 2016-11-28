@@ -171,3 +171,8 @@ This implementation used the same idea as TWAS. Data from 1000Genomes imputation
 in HapMap II to make the weight generation more tenable to sample size. Note that weights were obtained 
 for all probes so it is possible to impute for only subset(s) of them. The file `EWAS.bim` was generated
 in order to make it easier to align strands for SNPs as in GWAS with those in the reference panel.
+
+   
+### Acknowledgements
+
+The work is possible with an EWAS project within the MRC Epidemiology Unit, for which colleagues and collaborators have contributed.
