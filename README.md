@@ -1,7 +1,5 @@
 ### Transcriptome-Wide Association Study Pipeline (TWAS-pipeline)
 
-Done while Simon is here
-
 #### INSTALLATIONS
 
 **TWAS**
