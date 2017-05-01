@@ -1,0 +1,27 @@
+#!/bin/bash
+#28-4-2017 MRC-Epid JHZ
+
+Rscript=/genetics/data/software/bin/Rscript
+sumstats=/genetics/bin/FUSION/tests/PGC2.SCZ.sumstats
+mkdir $sumstats.tmp
+cd $sumstats.tmp
+ln -sf /genetics/bin/FUSION/tests/glist-hg19
+for GTEx in $(/bin/cat /genetics/bin/FUSION/GTEx.list);do
+  for chr in $(seq 22); do
+  sge "$Rscript /genetics/bin/fusion_twas/FUSION.assoc_test.R \
+  --sumstats $sumstats \
+  --weights /genetics/bin/FUSION/GTEx/$GTEx.pos \
+  --weights_dir /genetics/bin/FUSION/GTEx \
+  --ref_ld_chr /genetics/bin/FUSION/LDREF/1000G.EUR. \
+  --chr ${chr} \
+  --out $sumstats.tmp/${GTEx}_${chr}.dat;\
+  N=`/bin/awk 'END{print FNR-1}' $sumstats.tmp/${GTEx}_${chr}.dat`;\
+  /bin/cat $sumstats.tmp/${GTEx}_${chr}.dat|\
+  /bin/awk -vN=$N -f /genetics/bin/FUSION/tests/gtex-sge.awk >  $sumstats.tmp/${GTEx}_${chr}.top;\
+  $Rscript /genetics/bin/fusion_twas/FUSION.post_process.R \
+  --sumstats $sumstats \
+  --input $sumstats.tmp/${GTEx}_${chr}.top \
+  --out $sumstats.tmp/${GTEx}_${chr}.top.analysis \
+  --ref_ld_chr /genetics/bin/FUSION/LDREF/1000G.EUR. --chr ${chr} --plot --locus_win 100000"
+  done
+done
