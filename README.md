@@ -172,6 +172,19 @@ in HapMap II to make the weight generation more tenable to sample size. Note tha
 for all probes so it is possible to impute for only subset(s) of them. The file `EWAS.bim` was generated
 in order to make it easier to align strands for SNPs as in GWAS with those in the reference panel.
 
+### FUSION pipeline
+
+This follows the American Journal of Human Genetics paper to use FUSION for gene expressioin analysis.
+
+Files | Description
+------|------------
+gtex-fusion.sh | driver
+gtex-fusion.qsub | sge routine
+gtex-fusion.subs | sge subroutine
+gtex-fusion.awk | sge called AWK script
+gtex-fusion.sge | non-array version
+
+Note the non-array version is created in case of failure from the array counterpart.
    
 ### ACKNOWLEDGEMENTS
 
