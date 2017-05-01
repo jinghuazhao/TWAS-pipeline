@@ -1,0 +1,12 @@
+#!/bin/bash
+#$ -S /bin/bash
+#$ -V
+#$ -o /scratch/fusion_twas.o
+#$ -e /scratch/fusion_twas.e
+#$ -N TWAS_GTEx
+#$ -q all.q
+#$ -t 1-43
+#$ -l h_vmem=20G
+#$ -l mem_free=20G
+
+$FUSION/gtex-fusion.subs $SGE_TASK_ID $dir $GTEx $sumstats
