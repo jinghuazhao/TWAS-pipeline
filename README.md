@@ -174,7 +174,7 @@ in order to make it easier to align strands for SNPs as in GWAS with those in th
 
 ### FUSION pipeline
 
-This follows the American Journal of Human Genetics paper to use FUSION for gene expressioin analysis.
+This follows Mancuso N, et al. (2017) to use [FUSION](http://gusevlab.org/projects/fusion/) for gene expressioin analysis, whose associate software available from https://github.com/gusevlab/fusion_twas.
 
 Files | Description
 ------|------------
