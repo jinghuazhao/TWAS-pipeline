@@ -1,5 +1,5 @@
 #!/bin/bash
-# 1-5-2017 MRC-Epid JHZ
+# 15-5-2017 MRC-Epid JHZ
 
 cd $2
 awk '(NR>=(v-1)*sl+1 && NR<=v*sl){sub(/GTEx./,"",$1);print}' v=$1 sl=22 /genetics/bin/FUSION/GTEx.runlist|\
@@ -16,12 +16,12 @@ awk -vdir=$2 -vGTEx=$3 -vsumstats=$4 '
   --out %s.dat;\
   N=`/bin/awk \"END{print FNR-1}\" %s.dat`;\
   /bin/cat %s.dat|/bin/awk -vN=$N -f /genetics/bin/TWAS-pipeline/tests/gtex-fusion.awk >  %s.top;\
-  /genetics/data/software/bin/Rscript /genetics/bin/fusion_twas/FUSION.post_process.R \
+  /usr/local/bin/Rscript /genetics/bin/fusion_twas/FUSION.post_process.R \
   --sumstats %s \
   --input %s.top \
   --out %s.top.analysis \
   --ref_ld_chr /genetics/bin/FUSION/LDREF/1000G.EUR. \
-  --chr %d --plot --locus_win 100000",sumstats,$3,GTEx,$2,f, f,f,f, sumstats,f,f,$2)
+  --chr %d --plot --locus_win 500000",sumstats,$3,GTEx,$2,f, f,f,f, sumstats,f,f,$2)
   system(cmd)
 }'
 

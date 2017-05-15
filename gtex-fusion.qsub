@@ -1,8 +1,8 @@
 #!/bin/bash
 #$ -S /bin/bash
 #$ -V
-#$ -o /scratch/fusion_twas.o
-#$ -e /scratch/fusion_twas.e
+#$ -o $HOME/fusion_twas.o
+#$ -e $HOME/fusion_twas.e
 #$ -N TWAS_GTEx
 #$ -q all.q
 #$ -t 1-43
