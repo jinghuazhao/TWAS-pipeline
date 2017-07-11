@@ -1,5 +1,5 @@
 #!/bin/bash
-# 6-7-2017 MRC-Epid JHZ
+# 10-7-2017 MRC-Epid JHZ
 
 Rscript=/genetics/data/software/bin/Rscript
 sumstats=/genetics/bin/FUSION/tests/PGC2.SCZ.sumstats
@@ -17,7 +17,7 @@ for GTEx in $(/bin/cat /genetics/bin/FUSION/GTEx.list);do
   --out $sumstats.tmp/${GTEx}_${chr}.dat;\
   N=`/bin/awk 'END{print FNR-1}' $sumstats.tmp/${GTEx}_${chr}.dat`;\
   /bin/cat $sumstats.tmp/${GTEx}_${chr}.dat|\
-  /bin/awk -vN=$N -f /genetics/bin/FUSION/gtex-fusion.awk >  $sumstats.tmp/${GTEx}_${chr}.top;\
+  /bin/awk -vN=$N -f /genetics/bin/TWAS-pipeline/gtex-fusion.awk >  $sumstats.tmp/${GTEx}_${chr}.top;\
   $Rscript /genetics/bin/fusion_twas/FUSION.post_process.R \
   --sumstats $sumstats \
   --input $sumstats.tmp/${GTEx}_${chr}.top \
