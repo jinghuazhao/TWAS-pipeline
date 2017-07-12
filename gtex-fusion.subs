@@ -6,14 +6,21 @@ awk '(NR>=(v-1)*sl+1 && NR<=v*sl){sub(/GTEx./,"",$1);print}' v=$1 sl=22 /genetic
 awk -vdir=$2 -vGTEx=$3 -vsumstats=$4 -vTWAS=$5 '
 {
   f=sprintf("%s/%s_%d",dir,$1,$2)
-  cmd=sprintf("#!/bin/bash\n\
-  /bin/awk -vN=%d \"NR==1||$NF<=0.05/N\" %s.dat >  %s.top;\
+  cmd=sprintf("#!/bin/bash\n \
+  /genetics/bin/FUSION.assoc_test.R \
+  --sumstats %s \
+  --weights %s.pos \
+  --weights_dir %s \
+  --ref_ld_chr /genetics/bin/FUSION/LDREF/1000G.EUR. \
+  --chr %d \
+  --out %s.dat;\
+  /bin/awk -vN=%d -f %s/gtex-fusion.awk %s.dat > %s.top;
+  /bin/awk -f %s/gtex-fusion.awk t=%f %s.dat > %s.top;\
   /usr/local/bin/Rscript /genetics/bin/fusion_twas/FUSION.post_process.R \
   --sumstats %s \
   --input %s.top \
   --out %s.top.analysis \
   --ref_ld_chr /genetics/bin/FUSION/LDREF/1000G.EUR. \
-  --chr %d --plot --locus_win 500000", $4,TWAS,f,f, sumstats,f,f,$2)
-  echo cmd
-#  system(cmd)
+  --chr %d --plot --locus_win 500000",sumstats,$3,GTEx,$2,f, TWAS,0.05/$4,f,f, sumstats,f,f,$2)
+  system(cmd)
 }'
