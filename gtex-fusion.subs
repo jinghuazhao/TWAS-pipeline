@@ -6,7 +6,7 @@ awk '(NR>=(v-1)*sl+1 && NR<=v*sl){sub(/GTEx./,"",$1);print}' v=$1 sl=22 /genetic
 awk -vdir=$2 -vGTEx=$3 -vsumstats=$4 -vTWAS=$5 '
 {
   f=sprintf("%s/%s_%d",dir,$1,$2)
-  cmd=sprintf("#!/bin/bash\n \
+  cmd=sprintf("#!/bin/bash\n\
   /genetics/bin/FUSION.assoc_test.R \
   --sumstats %s \
   --weights %s.pos \
@@ -14,7 +14,6 @@ awk -vdir=$2 -vGTEx=$3 -vsumstats=$4 -vTWAS=$5 '
   --ref_ld_chr /genetics/bin/FUSION/LDREF/1000G.EUR. \
   --chr %d \
   --out %s.dat;\
-  /bin/awk -vN=%d -f %s/gtex-fusion.awk %s.dat > %s.top;
   /bin/awk -f %s/gtex-fusion.awk t=%f %s.dat > %s.top;\
   /usr/local/bin/Rscript /genetics/bin/fusion_twas/FUSION.post_process.R \
   --sumstats %s \
