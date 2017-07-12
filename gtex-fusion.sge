@@ -1,5 +1,5 @@
 #!/bin/bash
-# 11-7-2017 MRC-Epid JHZ
+# 12-7-2017 MRC-Epid JHZ
 
 Rscript=/genetics/bin/Rscript.sh
 sumstats=/genetics/bin/FUSION/tests/PGC2.SCZ.sumstats
@@ -8,7 +8,7 @@ cd $sumstats.tmp
 ln -sf /genetics/bin/FUSION/tests/glist-hg19
 for GTEx in $(/bin/cat /genetics/bin/FUSION/GTEx.list);do
   for chr in $(seq 22); do
-  sge "#!/bin/bash; \
+  echo -e "#!/bin/bash\n\
   $Rscript /genetics/bin/fusion_twas/FUSION.assoc_test.R \
   --sumstats $sumstats \
   --weights /genetics/bin/FUSION/GTEx/$GTEx.pos \
@@ -23,6 +23,7 @@ for GTEx in $(/bin/cat /genetics/bin/FUSION/GTEx.list);do
   --sumstats $sumstats \
   --input $sumstats.tmp/${GTEx}_${chr}.top \
   --out $sumstats.tmp/${GTEx}_${chr}.top.analysis \
-  --ref_ld_chr /genetics/bin/FUSION/LDREF/1000G.EUR. --chr ${chr} --plot --locus_win 100000"
+  --ref_ld_chr /genetics/bin/FUSION/LDREF/1000G.EUR. --chr ${chr} --plot --locus_win 100000" > sge.sh
+  sge "sge.sh"
   done
 done
