@@ -14,7 +14,7 @@ awk -vdir=$2 -vGTEx=$3 -vsumstats=$4 -vTWAS=$5 '
   --ref_ld_chr /genetics/bin/FUSION/LDREF/1000G.EUR. \
   --chr %d \
   --out %s.dat;\
-  /bin/awk -vN=%d -f %s/gtex-fusion.awk %s.dat >  %s.top;\
+  /bin/awk -vN=%d \"NR==1||$$NF<=0.05/N\" %s.dat >  %s.top;\
   /usr/local/bin/Rscript /genetics/bin/fusion_twas/FUSION.post_process.R \
   --sumstats %s \
   --input %s.top \
