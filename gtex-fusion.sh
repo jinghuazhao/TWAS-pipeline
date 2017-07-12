@@ -1,7 +1,8 @@
 #!/bin/bash
-#10-7-2017 MRC-Epid JHZ
+#12-7-2017 MRC-Epid JHZ
 
 #parallel '/bin/echo {1} {2} /genetics/bin/FUSION/GTEx/{1}' ::: $(/bin/cat ../GTEx.list) ::: $(seq 22)>../GTEx.runlist
+#now cd genetics/bin/FUSION; sh GTEx.sh
 
 if [ $# -lt 1 ] || [ "$1" == "-h" ]; then
     echo "Usage: gtex-fusion.sh <input>"
