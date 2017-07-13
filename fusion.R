@@ -71,4 +71,3 @@ ajc <- ajc[with(ajc,order(CHR,start)),]
 write.csv(ajc,file=paste0(prefix,tissue,"-ajc.csv"),quote=FALSE, row.names=FALSE)
 cat(paste0("Association + Joint/conditional annotation: ", prefix, tissue, "-ajc.csv\n"))
 rm(prefix, temp, included, dropped, glist, annotated.data, sorted.data, sig.data, j, c, aj, ajc)
-cat("\nDone.\n\n")
