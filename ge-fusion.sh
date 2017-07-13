@@ -15,4 +15,4 @@ fi
 FUSION=/genetics/bin/FUSION/tests
 ln -sf $FUSION/glist-hg19 $dir/glist-hg19
 TWAS=/genetics/bin/TWAS-pipeline
-qsub -cwd -sync y -v FUSION=$TWAS -v dir=$dir -v sumstats=$(pwd)/$1 -v GTEx=/genetics/bin/FUSION/GTEx -v TWAS=$TWAS $TWAS/ge-fusion.qsub
+qsub -cwd -sync y -v FUSION=$TWAS -v dir=$dir -v sumstats=$(pwd)/$1 -v GE=/genetics/bin/FUSION/GE -v TWAS=$TWAS $TWAS/ge-fusion.qsub

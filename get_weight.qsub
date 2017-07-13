@@ -1,7 +1,7 @@
 #!/bin/bash
 #$ -S /bin/bash
-#$ -o /scratch2/tempjhz22/EWAS/tmp/Test.o
-#$ -e /scratch2/tempjhz22/EWAS/tmp/Test.e
+#$ -o /genetics/bin/TWAS-pipeline/EWAS/tmp/Test.o
+#$ -e /genetics/bin/TWAS-pipeline/EWAS/tmp/Test.e
 #$ -N get_weights
 #$ -q all.q
 #$ -t 1-200
@@ -14,5 +14,5 @@
 # so we can use the value of that variable to get the results we want:
 # /scratch2/Alexia/twas_get_weight_modified.sh $SGE_TASK_ID
 
-/genetics/data/twas/2-9-16/get_weight.subs $SGE_TASK_ID 
+/genetics/bin/TWAS-pipeline/get_weight.subs $SGE_TASK_ID 
 

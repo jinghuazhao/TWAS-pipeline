@@ -9,4 +9,4 @@
 #$ -l h_vmem=20G
 #$ -l mem_free=20G
 
-$FUSION/ge-fusion.subs $SGE_TASK_ID $dir $GTEx $sumstats $TWAS
+$FUSION/ge-fusion.subs $SGE_TASK_ID $dir $GE $sumstats $TWAS
