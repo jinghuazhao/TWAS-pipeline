@@ -178,9 +178,11 @@ This follows Mancuso N, et al. (2017) to use [FUSION](http://gusevlab.org/projec
 
 Files | Description
 ------|------------
+GE.runlist | detailed list of jobs
 ge-fusion.sh | driver
 ge-fusion.qsub | qsub script
 ge-fusion.subs | subroutine
+GTEx.runlist | detailed list of jobs
 gtex-fusion.sh | driver
 gtex-fusion.qsub | sge routine
 gtex-fusion.subs | sge subroutine
