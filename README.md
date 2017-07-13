@@ -186,7 +186,7 @@ GTEx.runlist | detailed list of jobs
 gtex-fusion.sh | driver
 gtex-fusion.qsub | sge routine
 gtex-fusion.subs | sge subroutine
-gtex-fusion.awk | sge called AWK script
+fusion.awk | utility
 gtex-fusion.sge | non-array version
 
 Note the ge- prefix indicates weights as in the original TWAS paper and the non-array version is meant to cover the array counterpart but hardly used.
