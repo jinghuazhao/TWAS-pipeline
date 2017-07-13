@@ -1,0 +1,12 @@
+#!/bin/bash
+#$ -S /bin/bash
+#$ -V
+#$ -o $HOME/fusion_twas.o
+#$ -e $HOME/fusion_twas.e
+#$ -N TWAS_GE
+#$ -q all.q
+#$ -t 1-5
+#$ -l h_vmem=20G
+#$ -l mem_free=20G
+
+$FUSION/ge-fusion.subs $SGE_TASK_ID $dir $GTEx $sumstats $TWAS
