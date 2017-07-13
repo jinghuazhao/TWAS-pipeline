@@ -1,7 +1,6 @@
 #!/usr/local/bin/Rscript --vanilla
 
 args <- commandArgs(trailingOnly=TRUE)
-
 prefix <- args[1]
 prefix <- ifelse(substring(prefix,nchar(prefix)) != "/", paste0(prefix, "/"), prefix)
 tissue <- args[2]
