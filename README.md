@@ -178,13 +178,16 @@ This follows Mancuso N, et al. (2017) to use [FUSION](http://gusevlab.org/projec
 
 Files | Description
 ------|------------
+ge-fusion.sh | driver
+ge-fusion.qsub | qsub script
+ge-fusion.subs | subroutine
 gtex-fusion.sh | driver
 gtex-fusion.qsub | sge routine
 gtex-fusion.subs | sge subroutine
 gtex-fusion.awk | sge called AWK script
 gtex-fusion.sge | non-array version
 
-Note the non-array version is created in case of failure from the array counterpart.
+Note the ge- prefix indicates weights as in the original TWAS paper and the non-array version is meant to cover the array counterpart but hardly used.
    
 ### ACKNOWLEDGEMENTS
 
