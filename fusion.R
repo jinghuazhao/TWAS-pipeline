@@ -1,5 +1,7 @@
 #!/usr/local/bin/Rscript --vanilla
 
+options(echo=FALSE)
+
 args <- commandArgs(trailingOnly=TRUE)
 prefix <- args[1]
 prefix <- ifelse(substring(prefix,nchar(prefix)) != "/", paste0(prefix, "/"), prefix)
@@ -13,10 +15,6 @@ if(is.na(prefix)) {
 
 NR <- function(f) {con <- file(f, "r", blocking=FALSE); l <- readLines(con); close(con); length(l)}
 
-# User messages
-options(echo=TRUE)
-
-# Manifest information
 glist <- read.table(paste0("/genetics/bin/FUSION/tests/","glist-hg19"),as.is=TRUE, skip=7)
 names(glist) <- c("chr","start","end","ID")
 
@@ -33,13 +31,10 @@ for(i in 1:22) {
 }
 library(reshape)
 # Annotation
-if(!is.null(temp))
-{
-  temp <- within(temp, {MHC <- 0})
-  temp[1:nMHC, "MHC"] <- 1
-  annotated.data <- merge(temp, glist, by="ID")
-  N <- nrow(annotated.data)
-}  
+temp <- within(temp, {MHC <- 0})
+temp[1:nMHC, "MHC"] <- 1
+annotated.data <- merge(temp, glist, by="ID")
+N <- nrow(annotated.data)
 
 # P-values, Bonferroni-corrected significant list and joint/conditional analysis
 sorted.data <- annotated.data[with(annotated.data,order(TWAS.P)),]
@@ -76,8 +71,4 @@ ajc <- ajc[with(ajc,order(CHR,start)),]
 write.csv(ajc,file=paste0(prefix,tissue,"-ajc.csv"),quote=FALSE, row.names=FALSE)
 cat(paste0("Association + Joint/conditional annotation: ", prefix, tissue, "-ajc.csv\n"))
 cat("\nThe annotation is done.\n\n")
-# rm(prefix, temp, included, dropped, anno, annotated.data, sorted.data, sig.data, j, c, aj, ajc)
-
-cat("Further information about FUSION and annotation is available from\n
-http://gusevlab.org/projects/fusion/
-https://support.illumina.com/array/array_kits/infinium_humanmethylation450_beadchip_kit/downloads.html\n\n")
+rm(prefix, temp, included, dropped, anno, annotated.data, sorted.data, sig.data, j, c, aj, ajc)
