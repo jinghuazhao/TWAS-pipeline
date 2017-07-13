@@ -1,5 +1,5 @@
 #!/bin/bash
-#12-7-2017 MRC-Epid JHZ
+#13-7-2017 MRC-Epid JHZ
 
 #parallel '/bin/echo {1} {2} /genetics/bin/FUSION/GTEx/{1}' ::: $(/bin/cat ../GTEx.list) ::: $(seq 22)>../GTEx.runlist
 #now cd genetics/bin/FUSION; sh GTEx.sh
@@ -11,7 +11,7 @@ if [ $# -lt 1 ] || [ "$1" == "-h" ]; then
     echo "The output is contained in <$1.tmp>"
     exit
 fi
-dir=$(pwd)/$(basename $1).tmp
+dir=$(pwd)/$(basename $1).GTEx
 if [ ! -d $dir ]; then
    mkdir -p $dir
 fi
