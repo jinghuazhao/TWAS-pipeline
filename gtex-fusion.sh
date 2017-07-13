@@ -8,7 +8,7 @@ if [ $# -lt 1 ] || [ "$1" == "-h" ]; then
     echo "Usage: gtex-fusion.sh <input>"
     echo "where <input> is in tab-delimited format:"
     echo "SNP A1 A2 Z N"
-    echo "The output is contained in <$1.tmp>"
+    echo "The output is contained in <$1.GTEx>"
     exit
 fi
 dir=$(pwd)/$(basename $1).GTEx
