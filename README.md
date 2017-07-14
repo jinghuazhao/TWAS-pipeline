@@ -187,7 +187,7 @@ gtex-fusion.sh | driver
 gtex-fusion.qsub | sge routine
 gtex-fusion.subs | sge subroutine
 gtex-fusion.sge | non-array version
-fusion.awk | utility
+gtex-fusion.awk | utility
 fusion.R | utility
 fusion.sh | utility
 
