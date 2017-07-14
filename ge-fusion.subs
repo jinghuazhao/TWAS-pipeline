@@ -1,9 +1,10 @@
 #!/bin/bash
-# 13-7-2017 MRC-Epid JHZ
+# 14-7-2017 MRC-Epid JHZ
 
 cd $2
-awk '(NR>=(v-1)*sl+1 && NR<=v*sl)' v=$1 sl=22 /genetics/bin/FUSION/GE.runlist|\
-awk -vdir=$2 -vGE=$3 -vsumstats=$4 -vTWAS=$5 '
+TWAS=$5
+awk '(NR>=(v-1)*sl+1 && NR<=v*sl)' v=$1 sl=22 $TWAS/GE.runlist|\
+awk -vdir=$2 -vGE=$3 -vsumstats=$4 '
 {
   f=sprintf("%s/%s_%d",dir,$1,$2)
   cmd=sprintf("#!/bin/bash\n\
@@ -14,12 +15,12 @@ awk -vdir=$2 -vGE=$3 -vsumstats=$4 -vTWAS=$5 '
   --ref_ld_chr /genetics/bin/FUSION/LDREF/1000G.EUR. \
   --chr %d \
   --out %s.dat;\
-  /bin/awk -f %s/fusion.awk t=%f %s.dat > %s.top;\
+  /bin/awk \x27(NR==1 || $NF <= t)\x27 t=%f %s.dat > %s.top;\
   /usr/local/bin/Rscript /genetics/bin/fusion_twas/FUSION.post_process.R \
   --sumstats %s \
   --input %s.top \
   --out %s.top.analysis \
   --ref_ld_chr /genetics/bin/FUSION/LDREF/1000G.EUR. \
-  --chr %d --plot --locus_win 500000",sumstats,$3,GE,$2,f, TWAS,0.05/$4,f,f, sumstats,f,f,$2)
+  --chr %d --plot --locus_win 500000",sumstats,$3,GE,$2,f, 0.05/$4,f,f, sumstats,f,f,$2)
   system(cmd)
 }'
