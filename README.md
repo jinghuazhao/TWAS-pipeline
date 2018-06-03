@@ -39,7 +39,7 @@ and a call `pnorm z_score` yields a p value with more decimal places. However, t
 
 Further information is available from [here](http://www.gnu.org/software/parallel/).
 
-### RUNNING THE PIPELINE
+### USAGE
 
 Suppose you have a file containing GWAS summary statistics, you cna run the pipeline as follows,
 ```
