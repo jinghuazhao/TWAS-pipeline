@@ -57,6 +57,8 @@ reference `.bim` files used by `TWAS` and `GTEX_WEIGHTS.lst` was created to faci
 
 These are available from [the wiki directory](https://github.com/jinghuazhao/TWAS-pipeline/wiki),
 
+* [AN EXAMPLE ON BODY BONE MINERAL DENSITY](https://github.com/jinghuazhao/TWAS-pipeline/wiki/AN-EXAMPLE-ON-BODY-BONE-MINERAL-DENSITY)
+
 * [BUILDING REFERENCE PANEL](https://github.com/jinghuazhao/TWAS-pipeline/wiki/BUILDING-REFERENCE-PANEL)
 
 * [AN EXPOSITION WITH GIANT DATA](https://github.com/jinghuazhao/TWAS-pipeline/wiki/AN-EXPOSITION-WITH-GIANT-DATA)
