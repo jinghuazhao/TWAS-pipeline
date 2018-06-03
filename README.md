@@ -8,7 +8,7 @@ The following packages by the developers
 
 Packages              | URLs
 ----------------------|----------------------------------
-TWAS                  | http://sashagusev.github.io/TWAS/
+TWAS                  | https://data.broadinstitute.org/alkesgroup/TWAS/TWAS.2016_02_24.tar.bz2
 weight files          | https://data.broadinstitute.org/alkesgroup/TWAS/
 z-score clean program | https://data.broadinstitute.org/alkesgroup/TWAS/ETC/CLEAN_ZSCORES.tar.bz2
 
