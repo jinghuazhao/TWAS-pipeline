@@ -2,7 +2,7 @@
 
 #### INSTALLATIONS
 
-**TWAS**
+**--- TWAS ---**
 
 The following packages by the developers
 
@@ -21,7 +21,7 @@ do
   ls WEIGHTS_$1 | sed 's\/\\g' > $pop.lst
 done
 ```
-**TWAS-pipeline**. The pipeline is installed as follows,
+**--- TWAS-pipeline ---**. The pipeline is installed as follows,
 ```
 git clone https://github.com/jinghuazhao/TWAS-pipeline
 ```
@@ -33,7 +33,7 @@ gcc pnorm.c -lm -o pnorm
 ```
 and a call `pnorm z_score` yields a p value with more decimal places.
 
-**GNU Parallel**. Further information is available from [here](http://www.gnu.org/software/parallel/).
+**--- GNU Parallel ---**. Further information is available from [here](http://www.gnu.org/software/parallel/).
 
 #### RUNNING THE PIPELINE
 
@@ -53,10 +53,6 @@ twas-single.sh input_file
 This is achieved with `gtex.sh` and `gtex.subs` using weights from the GTEx project. File `GTEX_WEIGHTS.bim.gz` was created by `GTEX_WEIGHTS.sh` in accordance with 
 reference `.bim` files used by `TWAS` and `GTEX_WEIGHTS.lst` was created to facilitate the imputation.
 
-### REFERENCES
-
-Gusev A, et al. (2016). Integrative approaches for large-scale transcriptome-wide association studies. Nature Genetics, 48, 245-252   
-
 Additional topics are available from the wiki,
 
 * [BUILDING REFERENCE PANEL](https://github.com/jinghuazhao/TWAS-pipeline/wiki/BUILDING-REFERENCE-PANEL)
@@ -70,3 +66,7 @@ Additional topics are available from the wiki,
 ### ACKNOWLEDGEMENTS
 
 The work is possible with an EWAS project within the MRC Epidemiology Unit, for which colleagues and collaborators have contributed.
+
+### REFERENCES
+
+Gusev A, et al. (2016). Integrative approaches for large-scale transcriptome-wide association studies. Nature Genetics, 48, 245-252
