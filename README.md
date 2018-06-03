@@ -53,7 +53,7 @@ twas-single.sh input_file
 This is achieved with `gtex.sh` and `gtex.subs` using weights from the GTEx project. File `GTEX_WEIGHTS.bim.gz` was created by `GTEX_WEIGHTS.sh` in accordance with 
 reference `.bim` files used by `TWAS` and `GTEX_WEIGHTS.lst` was created to facilitate the imputation.
 
-Additional topics are available from the wiki,
+Additional topics are available from [the wiki directory](https://github.com/jinghuazhao/TWAS-pipeline/wiki),
 
 * [BUILDING REFERENCE PANEL](https://github.com/jinghuazhao/TWAS-pipeline/wiki/BUILDING-REFERENCE-PANEL)
 
