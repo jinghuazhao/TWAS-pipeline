@@ -21,7 +21,9 @@ do
   ls WEIGHTS_$1 | sed 's\/\\g' > $pop.lst
 done
 ```
-**--- TWAS-pipeline ---**. The pipeline is installed as follows,
+**--- TWAS-pipeline ---**
+
+The pipeline is installed as follows,
 ```
 git clone https://github.com/jinghuazhao/TWAS-pipeline
 ```
@@ -33,7 +35,9 @@ gcc pnorm.c -lm -o pnorm
 ```
 and a call `pnorm z_score` yields a p value with more decimal places. However, the function is now part of `twas-single.sh`.
 
-**--- GNU Parallel ---**. Further information is available from [here](http://www.gnu.org/software/parallel/).
+**--- GNU Parallel ---**
+
+Further information is available from [here](http://www.gnu.org/software/parallel/).
 
 ### RUNNING THE PIPELINE
 
