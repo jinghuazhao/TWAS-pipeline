@@ -1,6 +1,6 @@
-### Transcriptome-Wide Association Study Pipeline (TWAS-pipeline)
+## Transcriptome-Wide Association Study Pipeline (TWAS-pipeline)
 
-#### INSTALLATIONS
+### INSTALLATIONS
 
 **--- TWAS ---**
 
@@ -35,7 +35,7 @@ and a call `pnorm z_score` yields a p value with more decimal places.
 
 **--- GNU Parallel ---**. Further information is available from [here](http://www.gnu.org/software/parallel/).
 
-#### RUNNING THE PIPELINE
+### RUNNING THE PIPELINE
 
 Suppose you have a file containing GWAS summary statistics, you cna run the pipeline as follows,
 ```
@@ -48,12 +48,14 @@ This assumes that ssh can access nodes in a clusters freely and in case this has
 twas-single.sh input_file
 ```
 
-#### TWAS using GTEx
+### TWAS using GTEx
 
 This is achieved with `gtex.sh` and `gtex.subs` using weights from the GTEx project. File `GTEX_WEIGHTS.bim.gz` was created by `GTEX_WEIGHTS.sh` in accordance with 
 reference `.bim` files used by `TWAS` and `GTEX_WEIGHTS.lst` was created to facilitate the imputation.
 
-Additional topics are available from [the wiki directory](https://github.com/jinghuazhao/TWAS-pipeline/wiki),
+### Additional topics
+
+These are available from [the wiki directory](https://github.com/jinghuazhao/TWAS-pipeline/wiki),
 
 * [BUILDING REFERENCE PANEL](https://github.com/jinghuazhao/TWAS-pipeline/wiki/BUILDING-REFERENCE-PANEL)
 
