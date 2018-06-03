@@ -55,15 +55,15 @@ reference `.bim` files used by `TWAS` and `GTEX_WEIGHTS.lst` was created to faci
 
 ### ADDITIONAL TOPICS
 
-These are available from [the wiki directory](https://github.com/jinghuazhao/TWAS-pipeline/wiki),
+These are available from [the wiki page](https://github.com/jinghuazhao/TWAS-pipeline/wiki),
 
-* [AN EXAMPLE ON BODY BONE MINERAL DENSITY](https://github.com/jinghuazhao/TWAS-pipeline/wiki/AN-EXAMPLE-ON-BODY-BONE-MINERAL-DENSITY)
+* [An example on body bone mineral density](https://github.com/jinghuazhao/TWAS-pipeline/wiki/An-example-on-body-bone-mineral-density)
 
-* [BUILDING REFERENCE PANEL](https://github.com/jinghuazhao/TWAS-pipeline/wiki/BUILDING-REFERENCE-PANEL)
+* [An exposition with GIANT data](https://github.com/jinghuazhao/TWAS-pipeline/wiki/An-exposition-with-GIANT-data)
 
-* [AN EXPOSITION WITH GIANT DATA](https://github.com/jinghuazhao/TWAS-pipeline/wiki/AN-EXPOSITION-WITH-GIANT-DATA)
+* [Building reference panel](https://github.com/jinghuazhao/TWAS-pipeline/wiki/Building-reference-panel)
 
-* [EPIGENOMEWIDE ASSOCIATION](https://github.com/jinghuazhao/TWAS-pipeline/wiki/EPIGENOMEWIDE-ASSOCIATION)
+* [Epigenomewide association](https://github.com/jinghuazhao/TWAS-pipeline/wiki/Epigenomewide-association)
 
 * [FUSION pipeline](https://github.com/jinghuazhao/TWAS-pipeline/wiki/FUSION-pipeline)
 
