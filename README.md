@@ -48,12 +48,12 @@ This assumes that ssh can access nodes in a clusters freely and in case this has
 twas-single.sh input_file
 ```
 
-### TWAS using GTEx
+### TWAS USING GTEx
 
 This is achieved with `gtex.sh` and `gtex.subs` using weights from the GTEx project. File `GTEX_WEIGHTS.bim.gz` was created by `GTEX_WEIGHTS.sh` in accordance with 
 reference `.bim` files used by `TWAS` and `GTEX_WEIGHTS.lst` was created to facilitate the imputation.
 
-### Additional topics
+### ADDITIONAL TOPICS
 
 These are available from [the wiki directory](https://github.com/jinghuazhao/TWAS-pipeline/wiki),
 
