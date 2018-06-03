@@ -71,6 +71,6 @@ These are available from [the wiki page](https://github.com/jinghuazhao/TWAS-pip
 
 The work is possible with an EWAS project within the MRC Epidemiology Unit, for which colleagues and collaborators have contributed.
 
-### REFERENCES
+### REFERENCE
 
-Gusev A, et al. (2016). Integrative approaches for large-scale transcriptome-wide association studies. Nature Genetics, 48, 245-252
+Gusev A, et al. (2016). Integrative approaches for large-scale transcriptome-wide association studies. Nature Genetics ([a copy at Harvard](https://data.broadinstitute.org/alkesgroup/TWAS/ETC/PAPER/)), 48, 245-252
