@@ -31,7 +31,7 @@ To accommodate the suggestion of p value in accordance with the Z-score in the o
 ```
 gcc pnorm.c -lm -o pnorm
 ```
-and a call `pnorm z_score` yields a p value with more decimal places.
+and a call `pnorm z_score` yields a p value with more decimal places. However, the function is now part of `twas-single.sh`.
 
 **--- GNU Parallel ---**. Further information is available from [here](http://www.gnu.org/software/parallel/).
 
